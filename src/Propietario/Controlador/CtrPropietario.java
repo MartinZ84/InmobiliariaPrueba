@@ -57,13 +57,15 @@ public class CtrPropietario implements ActionListener{
           if (podP.Guardar(pod)){
               
               JOptionPane.showMessageDialog(null, "Propietario Guardado");
+              panelPropietarioList.cargarPropietarios();
               PanelInmueble.cargarPropietarios();
+              //CrlInmueble.iniciar();
               CrlInmueble.cargarDniPropietario();
             cboPropietarios.getModel().setSelectedItem(pod);
               
               limpiar();
               
-              panelPropietarioList.cargarPropietarios();
+              
               int i = JOptionPane.showConfirmDialog(null,"¿Desea guardar mas  propietarios?",null,JOptionPane.YES_NO_OPTION);
             if(i==0){}
             else {frmP.dispose();}
