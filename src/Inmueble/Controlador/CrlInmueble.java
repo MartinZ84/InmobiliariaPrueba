@@ -10,6 +10,7 @@ import Inmueble.Modelo.ConsultasTipoInmueble;
 import Vista.Inmueble.FormInmueble;
 import Inmueble.Modelo.Inmueble;
 import Inmueble.Modelo.TipoInmueble;
+import Propietario.Controlador.CtrPropietario;
 import Propietario.Modelo.ConsultasPropietario;
 import Propietario.Modelo.Propietario;
 import Vista.Inmueble.PanelInmueble;
@@ -34,6 +35,7 @@ public class CrlInmueble implements ActionListener{
     private static ConsultasPropietario consultaprop=new ConsultasPropietario();
     private TipoInmueble tipoinmueble= new TipoInmueble();
     private ConsultasTipoInmueble consultatipo=new ConsultasTipoInmueble();
+    private Propietario propietarioparacombo=new Propietario();
     
     
     
@@ -46,6 +48,7 @@ public class CrlInmueble implements ActionListener{
         this.formulario.btnModificar.addActionListener(this);
         this.formulario.btnBorrar.addActionListener(this);
         this.formulario.btnLimpiar.addActionListener(this);
+        this.formulario.btnAgregarprop.addActionListener(this);
         
     
     }
@@ -122,7 +125,7 @@ public class CrlInmueble implements ActionListener{
               formulario.dispose();
               
               
-          } else{ JOptionPane.showMessageDialog(null, "Error al borrar");
+          } else{ JOptionPane.showMessageDialog(null, "No se pudo eliminar inmueble. Verifique si esta asociado a un contrato.");
               
       }
       
@@ -133,7 +136,21 @@ public class CrlInmueble implements ActionListener{
        if(e.getSource()== formulario.btnLimpiar){
               limpiar();
        }
+       if(e.getSource()==formulario.btnAgregarprop)
+       {
+        Propietario pod = new Propietario();
+        ConsultasPropietario podP = new ConsultasPropietario ();
+        Vista.Propietario.frmPropietario frmP = new Vista.Propietario.frmPropietario();
 
+        CtrPropietario ctrl = new CtrPropietario(pod,podP,frmP);
+        ctrl.iniciar();
+        //-----------------
+
+        frmP.setVisible(true);
+        frmP.btnModificar.setEnabled(false);
+        frmP.btnBorrar.setEnabled(false);
+       }
+       
   }
   public void limpiar(){
       formulario.txtID_inmueble.setText("");

@@ -58,8 +58,6 @@ public class CtrPropietario implements ActionListener{
               
               JOptionPane.showMessageDialog(null, "Propietario Guardado");
               PanelInmueble.cargarPropietarios();
-              CrlInmueble.cargarDniPropietario();
-            cboPropietarios.getModel().setSelectedItem(pod);
               
               limpiar();
               
@@ -67,7 +65,7 @@ public class CtrPropietario implements ActionListener{
               int i = JOptionPane.showConfirmDialog(null,"¿Desea guardar mas  propietarios?",null,JOptionPane.YES_NO_OPTION);
             if(i==0){}
             else {frmP.dispose();}
-              
+            
           } else{ JOptionPane.showMessageDialog(null, "Error al Guardar");
               limpiar();
       }
@@ -75,6 +73,12 @@ public class CtrPropietario implements ActionListener{
           catch(Exception num){JOptionPane.showMessageDialog(null, "Dato invalido");
       
   }
+      try {
+          CrlInmueble.cargarDniPropietario();
+          cboPropietarios.getModel().setSelectedItem(pod);
+      } catch (Exception u){
+          
+      }
       }
       
       if (e.getSource()==frmP.btnModificar){

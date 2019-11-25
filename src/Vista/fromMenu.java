@@ -74,7 +74,6 @@ public class fromMenu extends javax.swing.JFrame {
         jTabbedPaneMenu = new javax.swing.JTabbedPane();
         jPanelContrato = new javax.swing.JPanel();
         jButtonContrato = new javax.swing.JButton();
-        panelContratoList1 = new Vista.Contrato.PanelContratoList();
         jPanelPropietario = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -107,23 +106,16 @@ public class fromMenu extends javax.swing.JFrame {
         jPanelContratoLayout.setHorizontalGroup(
             jPanelContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContratoLayout.createSequentialGroup()
-                .addGroup(jPanelContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelContratoLayout.createSequentialGroup()
-                        .addGap(408, 408, 408)
-                        .addComponent(jButtonContrato))
-                    .addGroup(jPanelContratoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panelContratoList1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(430, Short.MAX_VALUE))
+                .addGap(408, 408, 408)
+                .addComponent(jButtonContrato)
+                .addContainerGap(904, Short.MAX_VALUE))
         );
         jPanelContratoLayout.setVerticalGroup(
             jPanelContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContratoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelContratoList1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(136, 136, 136)
+                .addGap(163, 163, 163)
                 .addComponent(jButtonContrato)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(538, Short.MAX_VALUE))
         );
 
         jTabbedPaneMenu.addTab("Contrato", jPanelContrato);
@@ -505,6 +497,5 @@ public class fromMenu extends javax.swing.JFrame {
     private javax.swing.JButton jbtnAbrirInquilino;
     private javax.swing.JButton jbtnBorrarInquilino;
     private javax.swing.JButton jbtnNuevoInquilino;
-    private Vista.Contrato.PanelContratoList panelContratoList1;
     // End of variables declaration//GEN-END:variables
 }

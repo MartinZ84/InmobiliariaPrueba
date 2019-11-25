@@ -308,7 +308,7 @@ public class FrmInquilino extends javax.swing.JFrame {
     private void jtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreKeyTyped
         // TODO add your handling code here:
         char c=evt.getKeyChar();      
-         if (Character.isLetter(c)){           
+         if (Character.isLetter(c)|| Character.isWhitespace(c)){           
        } else 
        {
            getToolkit().beep();
@@ -319,7 +319,7 @@ public class FrmInquilino extends javax.swing.JFrame {
 
     private void jtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtApellidoKeyTyped
     char c=evt.getKeyChar();      
-         if (Character.isLetter(c)){ 
+         if (Character.isLetter(c)|| Character.isWhitespace(c)){ 
              
        } else 
        {
@@ -341,7 +341,7 @@ public class FrmInquilino extends javax.swing.JFrame {
 
     private void jtGaranteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtGaranteKeyTyped
         char c=evt.getKeyChar();
-        if(Character.isLetter(c))
+        if(Character.isLetter(c)|| Character.isWhitespace(c))
         {}
         else{
         getToolkit().beep();

@@ -79,8 +79,8 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jDateChooserFecFin" pref="147" max="32767" attributes="0"/>
-                                  <Component id="jDateChooserFecIni" max="32767" attributes="0"/>
+                                  <Component id="jDateChooserFecIni" pref="147" max="32767" attributes="0"/>
+                                  <Component id="jDateChooserFecFin" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -135,15 +135,15 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jDateChooserFecIni" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelFecIni" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelFecIni" min="-2" max="-2" attributes="0"/>
+                  <Component id="jDateChooserFecIni" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jDateChooserFecFin" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelFecFin" alignment="0" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jLabelFecFin" min="-2" max="-2" attributes="0"/>
+                  <Component id="jDateChooserFecFin" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -284,11 +284,6 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserFecIni">
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabelFecIni">
       <Properties>
         <Property name="text" type="java.lang.String" value="Fecha Inicio:"/>
@@ -298,6 +293,11 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Fecha Fin:"/>
       </Properties>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserFecIni">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserFecFin">
       <AuxValues>

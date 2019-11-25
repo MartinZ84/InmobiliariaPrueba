@@ -456,7 +456,7 @@ public class PanelInmueble extends javax.swing.JPanel {
             cargarInmueblesFiltrados(); 
             JOptionPane.showMessageDialog(null, "Inmueble eliminado");
             
-            } else JOptionPane.showMessageDialog(null,"No se puede eliminar inmueble");
+            } else JOptionPane.showMessageDialog(null,"No se pudo eliminar inmueble. Verifique si esta asociado a un contrato.");
             
         }
     }//GEN-LAST:event_btnEliminarInmuebleActionPerformed

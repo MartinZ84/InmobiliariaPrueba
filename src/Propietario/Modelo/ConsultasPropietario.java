@@ -28,7 +28,7 @@ public boolean Guardar(Propietario propi){
         
         
         String sql = "INSERT INTO propietario (dni_propietario,nombre_propietario,apellido_propietario,domicilio_propietario,telefono_propietario) VALUES (?,?,?,?,?);"; 
-        
+        con=conexion();
         try {
             ps=con.prepareStatement(sql);
             ps.setInt(1,propi.getDni_propietario());

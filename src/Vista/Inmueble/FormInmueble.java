@@ -279,21 +279,7 @@ public class FormInmueble extends javax.swing.JFrame {
     }//GEN-LAST:event_cboPropietariosKeyTyped
 
     private void btnAgregarpropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarpropActionPerformed
-    Propietario pod = new Propietario();
-        ConsultasPropietario podP = new ConsultasPropietario ();
-        Vista.Propietario.frmPropietario frmP = new Vista.Propietario.frmPropietario();
 
-        CtrPropietario ctrl = new CtrPropietario(pod,podP,frmP);
-        ctrl.iniciar();
-        
-        //-----------------
-
-        frmP.setVisible(true);
-        frmP.btnModificar.setEnabled(false);
-        frmP.btnBorrar.setEnabled(false);
-        
-       
-        
     }//GEN-LAST:event_btnAgregarpropActionPerformed
 
     /**
@@ -332,7 +318,7 @@ public class FormInmueble extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarprop;
+    public javax.swing.JButton btnAgregarprop;
     public javax.swing.JButton btnBorrar;
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnLimpiar;
