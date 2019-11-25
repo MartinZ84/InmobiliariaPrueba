@@ -307,17 +307,12 @@ public class FrmInquilino extends javax.swing.JFrame {
 
     private void jtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreKeyTyped
         // TODO add your handling code here:
-<<<<<<< HEAD
-        char c=evt.getKeyChar();      
-         if (Character.isLetter(c)|| Character.isWhitespace(c)){           
-       } else 
-       {
-           getToolkit().beep();
-=======
+
+
          char c=evt.getKeyChar();      
          if (Character.isDigit(c)){ 
              getToolkit().beep();
->>>>>>> 6052c473ba417ffb7e9ef360685a5c2d9740ba91
+
            evt.consume(); 
        } 
         
@@ -325,16 +320,10 @@ public class FrmInquilino extends javax.swing.JFrame {
 
     private void jtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtApellidoKeyTyped
     char c=evt.getKeyChar();      
-<<<<<<< HEAD
-         if (Character.isLetter(c)|| Character.isWhitespace(c)){ 
-             
-       } else 
-       {
-           getToolkit().beep();
-=======
+
          if (Character.isDigit(c)){ 
              getToolkit().beep();
->>>>>>> 6052c473ba417ffb7e9ef360685a5c2d9740ba91
+
            evt.consume(); 
        }        // TODO add your handling code here:
     }//GEN-LAST:event_jtApellidoKeyTyped
@@ -351,20 +340,14 @@ public class FrmInquilino extends javax.swing.JFrame {
     }//GEN-LAST:event_jtCuitKeyTyped
 
     private void jtGaranteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtGaranteKeyTyped
-<<<<<<< HEAD
-        char c=evt.getKeyChar();
-        if(Character.isLetter(c)|| Character.isWhitespace(c))
-        {}
-        else{
-        getToolkit().beep();
-           evt.consume();       }  // TODO add your handling code here:
-=======
+
+
         char c=evt.getKeyChar();      
          if (Character.isDigit(c)){ 
              getToolkit().beep();
            evt.consume(); 
        }  // TODO add your handling code here:
->>>>>>> 6052c473ba417ffb7e9ef360685a5c2d9740ba91
+
     }//GEN-LAST:event_jtGaranteKeyTyped
 
     /**

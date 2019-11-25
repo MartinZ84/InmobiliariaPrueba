@@ -59,13 +59,11 @@ public class CtrPropietario implements ActionListener{
               JOptionPane.showMessageDialog(null, "Propietario Guardado");
               panelPropietarioList.cargarPropietarios();
               PanelInmueble.cargarPropietarios();
-<<<<<<< HEAD
-=======
+
               //CrlInmueble.iniciar();
               CrlInmueble.cargarDniPropietario();
             cboPropietarios.getModel().setSelectedItem(pod);
->>>>>>> 6052c473ba417ffb7e9ef360685a5c2d9740ba91
-              
+
               limpiar();
               
               
