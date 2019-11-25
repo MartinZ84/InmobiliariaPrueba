@@ -51,7 +51,7 @@ public class fromMenu extends javax.swing.JFrame {
                  //panelinmueble.setVisible(true);
         this.setTitle("Inmobliaria");
         //this.setExtendedState(this.MAXIMIZED_BOTH);
-      //  this.setResizable(false);
+        this.setResizable(false);
         this.setSize(new Dimension(1240, 600));
         this.setMinimumSize(new Dimension(1000, 600));
         this.setLocationRelativeTo(null);
@@ -75,15 +75,16 @@ public class fromMenu extends javax.swing.JFrame {
         jPanelContrato = new javax.swing.JPanel();
         jButtonContrato = new javax.swing.JButton();
         jPanelPropietario = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jSalirPro = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jPanelInmueble = new javax.swing.JPanel();
         jPanelInquilino = new javax.swing.JPanel();
         jbtnNuevoInquilino = new javax.swing.JButton();
         jbtnAbrirInquilino = new javax.swing.JButton();
         jbtnBorrarInquilino = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jSalirInq = new javax.swing.JLabel();
+        jPanelInmueble = new javax.swing.JPanel();
+        jSalirInm = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,13 +121,13 @@ public class fromMenu extends javax.swing.JFrame {
 
         jTabbedPaneMenu.addTab("Contrato", jPanelContrato);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel1.setText("Salir");
-        jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jSalirPro.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jSalirPro.setText("Salir");
+        jSalirPro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jSalirPro.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jSalirPro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                jSalirProMouseClicked(evt);
             }
         });
 
@@ -138,36 +139,24 @@ public class fromMenu extends javax.swing.JFrame {
         jPanelPropietarioLayout.setHorizontalGroup(
             jPanelPropietarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPropietarioLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1113, Short.MAX_VALUE)
-                .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 979, Short.MAX_VALUE)
+                .addComponent(jSalirPro)
+                .addGap(135, 135, 135))
         );
         jPanelPropietarioLayout.setVerticalGroup(
             jPanelPropietarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPropietarioLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jSalirPro, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 695, Short.MAX_VALUE))
             .addGroup(jPanelPropietarioLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(21, 21, 21)
                 .addComponent(jLabel4)
-                .addContainerGap(684, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPaneMenu.addTab("Propietario", jPanelPropietario);
-
-        javax.swing.GroupLayout jPanelInmuebleLayout = new javax.swing.GroupLayout(jPanelInmueble);
-        jPanelInmueble.setLayout(jPanelInmuebleLayout);
-        jPanelInmuebleLayout.setHorizontalGroup(
-            jPanelInmuebleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1375, Short.MAX_VALUE)
-        );
-        jPanelInmuebleLayout.setVerticalGroup(
-            jPanelInmuebleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 724, Short.MAX_VALUE)
-        );
-
-        jTabbedPaneMenu.addTab("Inmueble", jPanelInmueble);
 
         jbtnNuevoInquilino.setText("Nuevo");
         jbtnNuevoInquilino.addActionListener(new java.awt.event.ActionListener() {
@@ -208,39 +197,65 @@ public class fromMenu extends javax.swing.JFrame {
         jPanelInquilinoLayout.setHorizontalGroup(
             jPanelInquilinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelInquilinoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelInquilinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInquilinoLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jSalirInq))
-                    .addGroup(jPanelInquilinoLayout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(jPanelInquilinoLayout.createSequentialGroup()
-                .addGap(767, 767, 767)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSalirInq)
+                .addGap(141, 141, 141))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInquilinoLayout.createSequentialGroup()
+                .addContainerGap(829, Short.MAX_VALUE)
                 .addComponent(jbtnNuevoInquilino)
-                .addGap(55, 55, 55)
+                .addGap(35, 35, 35)
                 .addComponent(jbtnAbrirInquilino)
-                .addGap(52, 52, 52)
+                .addGap(34, 34, 34)
                 .addComponent(jbtnBorrarInquilino)
-                .addGap(0, 320, Short.MAX_VALUE))
+                .addGap(296, 296, 296))
         );
         jPanelInquilinoLayout.setVerticalGroup(
             jPanelInquilinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelInquilinoLayout.createSequentialGroup()
-                .addComponent(jSalirInq, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(jLabel2)
-                .addGap(432, 432, 432)
                 .addGroup(jPanelInquilinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSalirInq, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelInquilinoLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 285, Short.MAX_VALUE)
+                .addGroup(jPanelInquilinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnNuevoInquilino)
-                    .addGroup(jPanelInquilinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jbtnAbrirInquilino)
-                        .addComponent(jbtnBorrarInquilino)))
-                .addContainerGap(210, Short.MAX_VALUE))
+                    .addComponent(jbtnAbrirInquilino)
+                    .addComponent(jbtnBorrarInquilino))
+                .addGap(368, 368, 368))
         );
 
         jTabbedPaneMenu.addTab("Inquilino", jPanelInquilino);
+
+        jSalirInm.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jSalirInm.setText("Salir");
+        jSalirInm.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jSalirInm.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jSalirInm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jSalirInmMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelInmuebleLayout = new javax.swing.GroupLayout(jPanelInmueble);
+        jPanelInmueble.setLayout(jPanelInmuebleLayout);
+        jPanelInmuebleLayout.setHorizontalGroup(
+            jPanelInmuebleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInmuebleLayout.createSequentialGroup()
+                .addContainerGap(1205, Short.MAX_VALUE)
+                .addComponent(jSalirInm)
+                .addGap(140, 140, 140))
+        );
+        jPanelInmuebleLayout.setVerticalGroup(
+            jPanelInmuebleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelInmuebleLayout.createSequentialGroup()
+                .addComponent(jSalirInm, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 695, Short.MAX_VALUE))
+        );
+
+        jTabbedPaneMenu.addTab("Inmueble", jPanelInmueble);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -391,14 +406,14 @@ public class fromMenu extends javax.swing.JFrame {
            }
     }//GEN-LAST:event_jbtnBorrarInquilinoActionPerformed
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void jSalirProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSalirProMouseClicked
         // TODO add your handling code here:
          int i =JOptionPane.showConfirmDialog(this,"¿Desea Salir del sistema?","Confirmar salida",JOptionPane.YES_NO_OPTION);
             if(i==0){
         System.exit(0);
         setDefaultCloseOperation(Login.EXIT_ON_CLOSE);
             }
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_jSalirProMouseClicked
 
     private void jSalirInqMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSalirInqMouseClicked
         // TODO add your handling code here:
@@ -421,6 +436,15 @@ public class fromMenu extends javax.swing.JFrame {
         //-----------------        
         frmCont.setVisible(true);
     }//GEN-LAST:event_jButtonContratoActionPerformed
+
+    private void jSalirInmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSalirInmMouseClicked
+        // TODO add your handling code here:
+           int i =JOptionPane.showConfirmDialog(this,"¿Desea Salir del sistema?","Confirmar salida",JOptionPane.YES_NO_OPTION);
+            if(i==0){
+        System.exit(0);
+        setDefaultCloseOperation(Login.EXIT_ON_CLOSE);
+            }
+    }//GEN-LAST:event_jSalirInmMouseClicked
 
     /**
      * @param args the command line arguments
@@ -485,14 +509,15 @@ public class fromMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonContrato;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanelContrato;
     public static javax.swing.JPanel jPanelInmueble;
     private javax.swing.JPanel jPanelInquilino;
     private javax.swing.JPanel jPanelPropietario;
+    private javax.swing.JLabel jSalirInm;
     private javax.swing.JLabel jSalirInq;
+    private javax.swing.JLabel jSalirPro;
     public static javax.swing.JTabbedPane jTabbedPaneMenu;
     private javax.swing.JButton jbtnAbrirInquilino;
     private javax.swing.JButton jbtnBorrarInquilino;

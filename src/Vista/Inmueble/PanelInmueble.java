@@ -60,21 +60,23 @@ public class PanelInmueble extends javax.swing.JPanel {
         columnasi.add("ID");
         columnasi.add("Características");
         columnasi.add("Propietario");
-        columnasi.add("Superficie");
+        columnasi.add("Superficie m²");
         columnasi.add("Precio");
+        columnasi.add("Disponibilidad");
         for(Object col:columnasi)
             modeloinmuebles.addColumn(col);
         tabInmuebles.setModel(modeloinmuebles);
         tabInmuebles.getColumn("ID").setMaxWidth(30);
         tabInmuebles.getColumn("Características").setMinWidth(160);
         tabInmuebles.getColumn("Propietario").setMinWidth(100);
-        tabInmuebles.getColumn("Superficie").setMaxWidth(75);
+        tabInmuebles.getColumn("Superficie m²").setMinWidth(80);
         tabInmuebles.getColumn("Precio").setMaxWidth(60);
+        tabInmuebles.getColumn("Disponibilidad").setMinWidth(100);
     }
     public static void cargarInmuebles(ArrayList<Inmueble> inmuebles){
         borrarInmuebles();
         for(Inmueble i:inmuebles){
-            modeloinmuebles.addRow(new Object[] {i.getId_inmueble(),i.getTipo_inmueble(),i.getPropietario().getApellido_propietario(),i.getSuperficie(),i.getPrecio_base()});
+            modeloinmuebles.addRow(new Object[] {i.getId_inmueble(),i.getTipo_inmueble(),i.getPropietario().getApellido_propietario(),i.getSuperficie(),i.getPrecio_base(),i.getEstado_inmueble()});
         }
         
     }
@@ -218,13 +220,13 @@ public class PanelInmueble extends javax.swing.JPanel {
 
         tabInmuebles.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         tabInmuebles.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -345,18 +347,15 @@ public class PanelInmueble extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(rbDisponiblegrilla)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(rbNodisponiblegrilla)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(rbTodos))
-                                    .addComponent(jLabel5))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)
+                                .addComponent(rbDisponiblegrilla)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rbNodisponiblegrilla)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rbTodos))
+                            .addComponent(jLabel5)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)

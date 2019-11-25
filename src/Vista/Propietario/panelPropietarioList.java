@@ -350,18 +350,20 @@ public class panelPropietarioList extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 62, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnNuevoPropietario)
                             .addComponent(btnAbrirPropietario)
-                            .addComponent(btnBorrarPropietario))))
-                .addGap(73, 73, 73))
+                            .addComponent(btnBorrarPropietario))
+                        .addGap(150, 150, 150))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -425,6 +427,8 @@ public class panelPropietarioList extends javax.swing.JPanel {
                 }
               }
             }
+       }
+       
              Propietariobus = cdPropietario.busquedaXNomApeDniP(buffer); //.(JtNombre_inqui.getText());
              borrarPropietarios();
             if (Propietariobus.isEmpty()){
@@ -435,12 +439,13 @@ public class panelPropietarioList extends javax.swing.JPanel {
                 pro.getDomicilio_propietario(),pro.getTelefono_propietario()});
               }
             }
+       }
        
        
     
        
-       }
-       }             
+       
+                   
     }//GEN-LAST:event_btnBuscarBActionPerformed
 
     private void txtNombreBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreBActionPerformed
