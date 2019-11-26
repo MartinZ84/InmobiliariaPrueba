@@ -65,7 +65,7 @@ public class PanelInquilino extends javax.swing.JPanel {
       ctrInquilino.iniciar();
       PanelInquilino.cargarInquilinos();	
       frmI.btnGuardar.setEnabled(false);
-      frmI.jtDni.setEnabled(false);
+      frmI.jtDni.setEditable(false);
       frmI.btnLimpiar.setEnabled(false);
           }
     	}

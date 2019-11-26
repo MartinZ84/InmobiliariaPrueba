@@ -375,7 +375,7 @@ public class fromMenu extends javax.swing.JFrame {
         ctrInquilino.iniciar();
         PanelInquilino.cargarInquilinos();
         frmI.btnGuardar.setEnabled(false);
-        frmI.jtDni.setEnabled(false);
+        frmI.jtDni.setEditable(false);
         frmI.btnLimpiar.setEnabled(false);
        // this.setEnabled(false);
        }

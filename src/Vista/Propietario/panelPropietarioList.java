@@ -74,7 +74,7 @@ public class panelPropietarioList extends javax.swing.JPanel {
                    ctrPropietario.iniciar();
                    panelPropietarioList.cargarPropietarios();	
                    frmP.btnGuardar.setEnabled(false);
-                   frmP.jtDni.setEnabled(false);
+                   frmP.jtDni.setEditable(false);
                    frmP.btnLimpiar.setEnabled(false);
                    
           }
@@ -509,7 +509,7 @@ public class panelPropietarioList extends javax.swing.JPanel {
         ctrPropietario.iniciar();
         panelPropietarioList.cargarPropietarios();
         frmP.btnGuardar.setEnabled(false);
-       frmP.jtDni.setEnabled(false);
+       frmP.jtDni.setEditable(false);
        frmP.btnLimpiar.setEnabled(false);
        }
     }//GEN-LAST:event_btnAbrirPropietarioActionPerformed
