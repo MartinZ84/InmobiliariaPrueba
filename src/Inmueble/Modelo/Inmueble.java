@@ -12,7 +12,7 @@ import Propietario.Modelo.Propietario;
  * @author garba
  */
 public class Inmueble {
-    private String HOLA;
+ 
     private int id_inmueble;
     private TipoInmueble tipo_inmueble;
     private Propietario propietario;
@@ -98,6 +98,6 @@ public class Inmueble {
     }
     
     public String toString(){
-        return this.direccion_inmueble + ", zona " + this.estado_inmueble;
+        return this.id_inmueble + ", " + this.tipo_inmueble.getTipo_inmueble()+", "+this.direccion_inmueble;
     }
 }

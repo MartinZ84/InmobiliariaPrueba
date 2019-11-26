@@ -54,7 +54,7 @@ public class ConsultaContrato extends  Conexion {
             ps.execute();
             
             ps=con.prepareStatement(sql2);
-            ps.setString(1,"No disponibe");
+            ps.setString(1,"No disponible");
             ps.setInt(2, cont.getId_inmueble());
             ps.execute();
             

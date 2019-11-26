@@ -191,11 +191,10 @@ public class CtrlContrato  implements ActionListener{
 
                     if (consContr.Guardar(contrato)){
               
-                        JOptionPane.showMessageDialog(null, "Inquilino Guardado");
-                        limpiar();
+                        JOptionPane.showMessageDialog(null, "Contrato guardado");
+                        
                         PanelContratoList.cargarContratos();
-                        int i = JOptionPane.showConfirmDialog(null,"¿Desea guardar mas inquilinos?",null,JOptionPane.YES_NO_OPTION);
-                        if(i!=0) {frmCon.dispose();}
+                        
               
                     } else{ JOptionPane.showMessageDialog(null, "Error al Guardar");
                             limpiar();
