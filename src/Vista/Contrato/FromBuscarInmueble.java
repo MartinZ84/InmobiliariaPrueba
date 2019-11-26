@@ -46,11 +46,7 @@ public class FromBuscarInmueble extends javax.swing.JFrame {
                }
         };
         borrarInmuebles();
-        buttonGroup1.add(jRadioButtonDisponible);
-        buttonGroup1.add(jRadioButtonNoDisp);
-        buttonGroup1.add(jRadioButtonTodos);
         
-        jRadioButtonTodos.setSelected(true);
         //--COMBOS
         cargarPropietarios();
         cargarTipoInmueble();
@@ -144,10 +140,6 @@ public class FromBuscarInmueble extends javax.swing.JFrame {
         jComboBoxTipInmueble = new javax.swing.JComboBox();
         jLabel5 = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jRadioButtonDisponible = new javax.swing.JRadioButton();
-        jRadioButtonNoDisp = new javax.swing.JRadioButton();
-        jRadioButtonTodos = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setName("frameBusquedaInmueble"); // NOI18N
@@ -219,19 +211,6 @@ public class FromBuscarInmueble extends javax.swing.JFrame {
 
         jLabel5.setText("Dirección:");
 
-        jLabel6.setText("Estado Inmueble:");
-
-        jRadioButtonDisponible.setText("Disponible");
-        jRadioButtonDisponible.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonDisponibleActionPerformed(evt);
-            }
-        });
-
-        jRadioButtonNoDisp.setText("No Disponible");
-
-        jRadioButtonTodos.setText("Todos");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -246,24 +225,14 @@ public class FromBuscarInmueble extends javax.swing.JFrame {
                         .addComponent(jButtonLimpiar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButtonDisponible)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButtonNoDisp)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButtonTodos))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel5))
-                                .addGap(29, 29, 29)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBoxPropietarios, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBoxTipInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel5))
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBoxPropietarios, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxTipInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -284,13 +253,7 @@ public class FromBuscarInmueble extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))))
-                .addGap(12, 12, 12)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jRadioButtonDisponible)
-                    .addComponent(jRadioButtonNoDisp)
-                    .addComponent(jRadioButtonTodos))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonBuscar)
                     .addComponent(jButtonLimpiar)))
@@ -330,10 +293,6 @@ public class FromBuscarInmueble extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButtonDisponibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonDisponibleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonDisponibleActionPerformed
-
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         // TODO add your handling code here:
         List <Inmueble> inmuebleBus = new ArrayList<Inmueble>() ;
@@ -351,16 +310,8 @@ public class FromBuscarInmueble extends javax.swing.JFrame {
              
         if (!txtDireccion.getText().equals("")){
             buffer.append(" AND UPPER(direccion_inmueble) LIKE '%" + txtDireccion.getText().toUpperCase() + "%'");
-        } 
-        
-        if ( jRadioButtonDisponible.isSelected()){
-            buffer.append(" AND estado_inmueble LIKE '%Disponible%'");
-        } 
-        
-         if ( jRadioButtonNoDisp.isSelected()){
-            buffer.append(" AND estado_inmueble LIKE '%No disponible%'");
-        } 
-         
+        }         
+     
          inmuebleBus = cdInmueble.busquedaEspecifica(buffer);
          cargarInmuebles((ArrayList)inmuebleBus);
          if (inmuebleBus.isEmpty()){
@@ -375,7 +326,6 @@ public class FromBuscarInmueble extends javax.swing.JFrame {
         jComboBoxPropietarios.setSelectedIndex(0);
         jComboBoxTipInmueble.setSelectedIndex(0);
         txtDireccion.setText("");
-        jRadioButtonTodos.setSelected(true);
     }//GEN-LAST:event_jButtonLimpiarActionPerformed
 
     private void jButtonSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSeleccionarActionPerformed
@@ -454,11 +404,7 @@ public class FromBuscarInmueble extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JRadioButton jRadioButtonDisponible;
-    public javax.swing.JRadioButton jRadioButtonNoDisp;
-    public javax.swing.JRadioButton jRadioButtonTodos;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jTableInmuebles;
     public javax.swing.JTextField txtDireccion;
