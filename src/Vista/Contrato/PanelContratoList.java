@@ -6,12 +6,15 @@
 package Vista.Contrato;
 
 import Conexion.Conexion;
+import Contrato.Controlador.CtrlContrato;
 import Contrato.Modelo.ConsultaContrato;
 import Contrato.Modelo.*;
 import Inmueble.Modelo.ConsultasInmueble;
 import Inmueble.Modelo.Inmueble;
 import Inquilino.Modelo.ConsultasInquilno;
 import Inquilino.Modelo.Inquilino;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,6 +23,7 @@ import java.sql.SQLException;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -52,6 +56,69 @@ public class PanelContratoList extends javax.swing.JPanel {
          return false;
 	}
 	};
+        this.jTableContrato.addMouseListener
+                (
+                        new MouseAdapter()
+                        {
+                            public void mouseClicked(MouseEvent evnt)
+                            {
+                                if(evnt.getClickCount()>1)
+                                {
+                                    Contrato contrato = new Contrato();
+        ConsultaContrato cdContrato = new ConsultaContrato();
+        ConsultasInquilno cdInquilino = new ConsultasInquilno();
+        ConsultasInmueble cdInmueble = new ConsultasInmueble();
+        FromContrato fromCont = new FromContrato();
+
+        contrato = PanelContratoList.obtenerContratoDeTabla();
+        if (contrato==null)
+        { JOptionPane.showMessageDialog(null, "No se selecciono ningun inquilino de la tabla");}
+        else {
+            cdContrato.Buscar(contrato);
+            fromCont.txtID_contrato.setText(Integer.toString(contrato.getId_contrato()));
+
+            fromCont.jComboBoxEstadoContrato.setSelectedItem(contrato.getEstado_contrato());
+            fromCont.txtMonto.setText(String.valueOf(contrato.getMonto()));
+            fromCont.jDateChooserFecIni.setDate(Date.from(contrato.getFecha_ini().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+            fromCont.jDateChooserFecFin.setDate(Date.from(contrato.getFecha_fin().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+
+            CtrlContrato ctrlContrato = new CtrlContrato(contrato, cdContrato, fromCont);
+            ArrayList<Inquilino> inquilinos=new ArrayList<Inquilino>();
+            cdInquilino.obtenerInquilinos(inquilinos);
+            for(Inquilino inq:inquilinos ){
+                if(contrato.getInquilino().getDni_inquilino() == inq.getDni_inquilino()){
+
+                    fromCont.jComboBoxInquilino.getModel().setSelectedItem(inq);
+                    break;
+                }
+            }
+            ArrayList<Inmueble> inmuebles=new ArrayList<Inmueble>();
+            cdInmueble.obtenerInmuebles(inmuebles);
+            for(Inmueble inm:inmuebles ){
+                if(contrato.getInmueble().getId_inmueble() == inm.getId_inmueble()){
+
+                    fromCont.jComboBoxInmueble.getModel().setSelectedItem(inm);
+                    break;
+                }
+            }
+            ctrlContrato.iniciar();
+            //PanelContratoList.cargarContratos();false
+            fromCont.jButtonBuscarInmueble.setEnabled(false);
+            fromCont.jButtonBuscarInquilino.setEnabled(false);
+            fromCont.jComboBoxInmueble.setEnabled(false);
+            fromCont.jComboBoxInquilino.setEnabled(false);
+            fromCont.jDateChooserFecFin.setEnabled(false);
+            fromCont.jDateChooserFecIni.setEnabled(false);
+            fromCont.txtMonto.setEditable(false);
+            fromCont.jButtonGuardar.setEnabled(false);
+            fromCont.txtID_contrato.setEditable(false);
+            fromCont.jButtonLimpiar.setEnabled(false);
+            // this.setEnabled(false);
+        }
+                                }
+                            }
+                        });
+                
         armarCabeceraContrato();
         cargarContratos();
         
@@ -137,14 +204,20 @@ public class PanelContratoList extends javax.swing.JPanel {
       public static void cargarContratosBus(ArrayList<Contrato> contratos){
         borrarContratos();
        for(Contrato con:contratos){
-           modeloContrato.addRow(new Object[] {
+                modeloContrato.addRow(new Object[] {
                     con.getId_contrato(), 
-                    con.getInquilino().getApellido_inquilino()+", "+con.getInquilino().getNombre_inquilino(),
+                    con.getInquilino().getApellido_inquilino()+", "+con.getInquilino().getNombre_inquilino(), 
                     con.getInmueble().getTipo_inmueble()+". "+con.getInmueble().getDireccion_inmueble(),
+                    con.getInmueble().getPropietario().getApellido_propietario()+", "+con.getInmueble().getPropietario().getNombre_propietario(),
                     con.getEstado_contrato(),
                     con.getFecha_ini().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
                     con.getFecha_fin().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
                 });
+<<<<<<< HEAD
+            }
+     }
+      
+=======
         }
         
     }
@@ -157,6 +230,7 @@ public class PanelContratoList extends javax.swing.JPanel {
          this.jDateChooserFecIniDesde.setDate(null);
          this.jDateChooserFecIniHasta.setDate(null);
     }
+>>>>>>> 6e50f2af136c7c3a619518b69cac8ca5cd08eae5
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
