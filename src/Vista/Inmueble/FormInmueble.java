@@ -26,7 +26,7 @@ public class FormInmueble extends javax.swing.JFrame {
         dispnodisp.add(rbNodisponible);
         this.setIconImage(new ImageIcon(getClass().getResource("/imagenes/Inmo2.png")).getImage()) ;// poner imagen a jframe
         this.setLocationRelativeTo(null);
-        this.setResizable(false);
+        this.setResizable(true);
     }
     private void jtTxtsuperficie(java.awt.event.KeyEvent evt){
         char c=evt.getKeyChar();      
@@ -193,9 +193,9 @@ public class FormInmueble extends javax.swing.JFrame {
                                                 .addComponent(btnAgregarprop))))))
                             .addComponent(jLabel5)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(286, 286, 286)
+                        .addGap(324, 324, 324)
                         .addComponent(jLabel10)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -67,9 +67,9 @@ public class CrlInmueble implements ActionListener{
   public void actionPerformed(ActionEvent e){
       
       if (e.getSource()==formulario.btnGuardar){
-           if(campoVacio()){
+           if(campoVacio_guardar()){
               JOptionPane.showMessageDialog(null, "Complete todos los datos del inmueble");
-          } 
+          } else {
           propietario.setDni_propietario(((Propietario)formulario.cboPropietarios.getSelectedItem()).getDni_propietario());
           consultaprop.Buscar(propietario);
           inmueble.setPropietario(propietario);
@@ -81,6 +81,7 @@ public class CrlInmueble implements ActionListener{
               inmueble.setEstado_inmueble("No disponible");
           inmueble.setPrecio_base(Double.parseDouble(formulario.txtPrecio.getText()));
           inmueble.setSuperficie(Double.parseDouble(formulario.txtSuperficie.getText()));
+           
           if (consulta.GuardarInmueble(inmueble)){
               JOptionPane.showMessageDialog(null, "Inmueble guardado");
               limpiar();
@@ -93,14 +94,15 @@ public class CrlInmueble implements ActionListener{
               
           } else{ JOptionPane.showMessageDialog(null, "Error al guardar inmueble");
               limpiar();
+          }
       }
       
   }
       
       if (e.getSource()==formulario.btnModificar){
-          if(campoVacio()){
+          if(campoVacio_mod()){
               JOptionPane.showMessageDialog(null, "Complete todos los datos del inmueble");
-          } 
+          } else { 
           propietario.setDni_propietario(((Propietario)formulario.cboPropietarios.getSelectedItem()).getDni_propietario());
           consultaprop.Buscar(propietario);
           inmueble.setPropietario(propietario);
@@ -113,6 +115,7 @@ public class CrlInmueble implements ActionListener{
           inmueble.setPrecio_base(Double.parseDouble(formulario.txtPrecio.getText()));
           inmueble.setSuperficie(Double.parseDouble(formulario.txtSuperficie.getText()));
           
+          
           if (consulta.Modificar(inmueble)){
               
               JOptionPane.showMessageDialog(null, "Inmueble modificado");
@@ -120,6 +123,7 @@ public class CrlInmueble implements ActionListener{
               
           } else{ JOptionPane.showMessageDialog(null, "Error al modificar");
               limpiar();
+          }
       }
       
       }
@@ -185,15 +189,24 @@ public class CrlInmueble implements ActionListener{
       
       
   }
-  public boolean campoVacio(){
+  public boolean campoVacio_mod(){
       if(formulario.txtDireccion.getText().equals("")||
          formulario.txtPrecio.getText().equals("")||
          formulario.txtSuperficie.getText().equals("")||
-         formulario.cboPropietarios.getSelectedIndex()==-1||
-         formulario.cboTipo_inm.getSelectedIndex()==-1)
+         formulario.cboPropietarios.getSelectedItem().equals(null)||
+         formulario.cboTipo_inm.getSelectedItem().equals(null))
           return true;
       else return false;
       
+  }
+  public boolean campoVacio_guardar(){
+      if(formulario.txtDireccion.getText().equals("")||
+         formulario.txtPrecio.getText().equals("")||
+         formulario.txtSuperficie.getText().equals("")||
+         formulario.cboPropietarios.getSelectedIndex()<0||
+         formulario.cboTipo_inm.getSelectedIndex()<0)
+          return true;
+      else return false;
   }
   /*public void cargarPropietarios(){
       consultaprop
