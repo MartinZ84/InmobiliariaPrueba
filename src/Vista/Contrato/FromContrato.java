@@ -11,6 +11,7 @@ import java.awt.AWTEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -23,6 +24,8 @@ public class FromContrato extends javax.swing.JFrame {
      */
     public FromContrato() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setIconImage(new ImageIcon(getClass().getResource("/imagenes/Inmo2.png")).getImage()) ;// poner imagen a jframe
     }
 
     /**
@@ -37,7 +40,7 @@ public class FromContrato extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtID_contrato = new javax.swing.JTextField();
-        jComboBoxInquilino = new javax.swing.JComboBox<Inquilino>();
+        jComboBoxInquilino = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jComboBoxEstadoContrato = new javax.swing.JComboBox();
@@ -47,7 +50,7 @@ public class FromContrato extends javax.swing.JFrame {
         jButtonBuscarInmueble = new javax.swing.JButton();
         jButtonBuscarInquilino = new javax.swing.JButton();
         jButtonGuardar = new javax.swing.JButton();
-        jComboBoxInmueble = new javax.swing.JComboBox<Inmueble>();
+        jComboBoxInmueble = new javax.swing.JComboBox<>();
         jButtonEliminar = new javax.swing.JButton();
         jDateChooserFecIni = new com.toedter.calendar.JDateChooser();
         jLabelFecIni = new javax.swing.JLabel();
@@ -193,10 +196,11 @@ public class FromContrato extends javax.swing.JFrame {
                     .addComponent(jDateChooserFecFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelFecFin))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonGuardar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonEliminar)
-                    .addComponent(jButtonLimpiar))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonGuardar)
+                        .addComponent(jButtonLimpiar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 

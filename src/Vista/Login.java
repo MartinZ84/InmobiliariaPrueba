@@ -178,17 +178,17 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         
-       // String pass= String.valueOf(jPass.getPassword());
-      //  if (jtUser.getText().length() > 0 && pass.equals("123456")){
+       String pass= String.valueOf(jPass.getPassword());
+       if (jtUser.getText().length() > 0 && pass.equals("123456")){
             
        new fromMenu().setVisible(true);
 
        this.dispose();
-      //  } else 
-     //   {
-      //      JOptionPane.showMessageDialog(null,"Usuario y/o contraseña invalidos.");
-     //       jPass.setText("");
-     //   }
+        } else 
+       {
+          JOptionPane.showMessageDialog(null,"Usuario y/o contraseña invalidos.");
+          jPass.setText("");
+      }
     }//GEN-LAST:event_jbIngresar1ActionPerformed
 
     private void jPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPassActionPerformed
