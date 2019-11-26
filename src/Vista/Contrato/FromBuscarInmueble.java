@@ -339,7 +339,7 @@ public class FromBuscarInmueble extends javax.swing.JFrame {
         List <Inmueble> inmuebleBus = new ArrayList<Inmueble>() ;
         ConsultasInmueble cdInmueble = new ConsultasInmueble();
         
-         StringBuffer buffer = new StringBuffer( "SELECT * FROM inmueble WHERE 1=1 " );
+         StringBuffer buffer = new StringBuffer( "SELECT * FROM inmueble WHERE 1=1 AND estado_inmueble = 'Disponible' " );
          
         if( ((Propietario) jComboBoxPropietarios.getSelectedItem()).getDni_propietario() != 0 ){
             buffer.append(" AND dni_propietario = " + Integer.toString(((Propietario) jComboBoxPropietarios.getSelectedItem()).getDni_propietario()));

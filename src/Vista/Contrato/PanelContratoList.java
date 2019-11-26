@@ -213,9 +213,24 @@ public class PanelContratoList extends javax.swing.JPanel {
                     con.getFecha_ini().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
                     con.getFecha_fin().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
                 });
+<<<<<<< HEAD
             }
      }
       
+=======
+        }
+        
+    }
+    public void limpiar(){
+         this.jComboBoxFinderInmueble.setSelectedIndex(0);
+         this.jComboBoxFinderInquilino.setSelectedIndex(0);
+         this.jComboBoxFinderEstadoContrato.setSelectedIndex(0);
+         this.jDateChooserFecFinDesde.setDate(null);
+         this.jDateChooserFecFinHasta.setDate(null);
+         this.jDateChooserFecIniDesde.setDate(null);
+         this.jDateChooserFecIniHasta.setDate(null);
+    }
+>>>>>>> 6e50f2af136c7c3a619518b69cac8ca5cd08eae5
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -479,6 +494,7 @@ public class PanelContratoList extends javax.swing.JPanel {
 
     private void jButtonBuscarLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarLimpiarActionPerformed
         // TODO add your handling code here:
+        limpiar();
     }//GEN-LAST:event_jButtonBuscarLimpiarActionPerformed
 
 
