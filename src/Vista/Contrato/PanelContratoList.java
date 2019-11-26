@@ -158,9 +158,9 @@ public class PanelContratoList extends javax.swing.JPanel {
         }
         jTableContrato.setModel(modeloContrato);
         jTableContrato.getColumn("ID").setMaxWidth(30);
-        jTableContrato.getColumn("Inquilino").setMinWidth(170);
-        jTableContrato.getColumn("Inmueble").setMinWidth(200);
-        jTableContrato.getColumn("Propietario").setMinWidth(140);
+        jTableContrato.getColumn("Inquilino").setMinWidth(120);
+        jTableContrato.getColumn("Inmueble").setMinWidth(270);
+        jTableContrato.getColumn("Propietario").setMinWidth(120);
         jTableContrato.getColumn("Estado").setMinWidth(80);
         jTableContrato.getColumn("Fecha Inicio").setMinWidth(80);
         jTableContrato.getColumn("Fecha Fin").setMinWidth(80);

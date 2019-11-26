@@ -59,6 +59,7 @@ public class PanelInmueble extends javax.swing.JPanel {
         ArrayList<Object> columnasi=new ArrayList<Object>();
         columnasi.add("ID");
         columnasi.add("Características");
+        columnasi.add("Dirección");
         columnasi.add("Propietario");
         columnasi.add("Superficie m²");
         columnasi.add("Precio");
@@ -67,7 +68,8 @@ public class PanelInmueble extends javax.swing.JPanel {
             modeloinmuebles.addColumn(col);
         tabInmuebles.setModel(modeloinmuebles);
         tabInmuebles.getColumn("ID").setMaxWidth(30);
-        tabInmuebles.getColumn("Características").setMinWidth(160);
+        tabInmuebles.getColumn("Características").setMinWidth(180);
+        tabInmuebles.getColumn("Dirección").setMinWidth(180);
         tabInmuebles.getColumn("Propietario").setMinWidth(100);
         tabInmuebles.getColumn("Superficie m²").setMinWidth(80);
         tabInmuebles.getColumn("Precio").setMaxWidth(60);
@@ -76,7 +78,7 @@ public class PanelInmueble extends javax.swing.JPanel {
     public static void cargarInmuebles(ArrayList<Inmueble> inmuebles){
         borrarInmuebles();
         for(Inmueble i:inmuebles){
-            modeloinmuebles.addRow(new Object[] {i.getId_inmueble(),i.getTipo_inmueble(),i.getPropietario().getApellido_propietario() +" " + i.getPropietario().getNombre_propietario(),i.getSuperficie(),i.getPrecio_base(),i.getEstado_inmueble()});
+            modeloinmuebles.addRow(new Object[] {i.getId_inmueble(),i.getTipo_inmueble(),i.getDireccion_inmueble(),i.getPropietario().getApellido_propietario() +" " + i.getPropietario().getNombre_propietario(),i.getSuperficie(),i.getPrecio_base(),i.getEstado_inmueble()});
         }
         
     }
@@ -354,8 +356,8 @@ public class PanelInmueble extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(rbTodos))
                             .addComponent(jLabel5)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 574, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 787, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
