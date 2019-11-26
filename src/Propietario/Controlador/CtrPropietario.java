@@ -150,10 +150,10 @@ public class CtrPropietario implements ActionListener{
               limpiar();
       }              
       
-      }
+      }*/
        if(e.getSource()== frmP.btnLimpiar){
               limpiar();
-       }*/
+       }
     
 }
   
