@@ -213,14 +213,11 @@ public class PanelContratoList extends javax.swing.JPanel {
                     con.getFecha_ini().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
                     con.getFecha_fin().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
                 });
-<<<<<<< HEAD
+
             }
      }
       
-=======
-        }
-        
-    }
+
     public void limpiar(){
          this.jComboBoxFinderInmueble.setSelectedIndex(0);
          this.jComboBoxFinderInquilino.setSelectedIndex(0);
@@ -230,7 +227,7 @@ public class PanelContratoList extends javax.swing.JPanel {
          this.jDateChooserFecIniDesde.setDate(null);
          this.jDateChooserFecIniHasta.setDate(null);
     }
->>>>>>> 6e50f2af136c7c3a619518b69cac8ca5cd08eae5
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
