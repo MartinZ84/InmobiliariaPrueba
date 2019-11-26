@@ -148,6 +148,15 @@ public class PanelContratoList extends javax.swing.JPanel {
         }
         
     }
+    public void limpiar(){
+         this.jComboBoxFinderInmueble.setSelectedIndex(0);
+         this.jComboBoxFinderInquilino.setSelectedIndex(0);
+         this.jComboBoxFinderEstadoContrato.setSelectedIndex(0);
+         this.jDateChooserFecFinDesde.setDate(null);
+         this.jDateChooserFecFinHasta.setDate(null);
+         this.jDateChooserFecIniDesde.setDate(null);
+         this.jDateChooserFecIniHasta.setDate(null);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -411,6 +420,7 @@ public class PanelContratoList extends javax.swing.JPanel {
 
     private void jButtonBuscarLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarLimpiarActionPerformed
         // TODO add your handling code here:
+        limpiar();
     }//GEN-LAST:event_jButtonBuscarLimpiarActionPerformed
 
 
