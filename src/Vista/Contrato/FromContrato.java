@@ -84,6 +84,11 @@ public class FromContrato extends javax.swing.JFrame {
         jLabel2.setText("Inmueble:");
 
         jButtonBuscarInmueble.setText("Buscar Inmueble");
+        jButtonBuscarInmueble.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBuscarInmuebleActionPerformed(evt);
+            }
+        });
 
         jButtonBuscarInquilino.setLabel("Buscar Inquilino");
 
@@ -225,6 +230,10 @@ public class FromContrato extends javax.swing.JFrame {
     private void jComboBoxInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxInmuebleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxInmuebleActionPerformed
+
+    private void jButtonBuscarInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarInmuebleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonBuscarInmuebleActionPerformed
 
     /**
      * @param args the command line arguments
