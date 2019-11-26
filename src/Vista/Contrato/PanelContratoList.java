@@ -242,7 +242,7 @@ public class PanelContratoList extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jComboBoxFinderInmueble = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
-        jComboBoxFinderInquilino = new javax.swing.JComboBox<Inquilino>();
+        jComboBoxFinderInquilino = new javax.swing.JComboBox<>();
         jComboBoxFinderEstadoContrato = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -411,7 +411,7 @@ public class PanelContratoList extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel5.setText("Lista de Contratos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -424,7 +424,7 @@ public class PanelContratoList extends javax.swing.JPanel {
                 .addComponent(jPanelBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addContainerGap()
                 .addComponent(jLabel5)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -437,7 +437,7 @@ public class PanelContratoList extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("");

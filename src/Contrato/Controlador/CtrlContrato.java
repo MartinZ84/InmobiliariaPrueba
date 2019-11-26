@@ -13,6 +13,8 @@ import Vista.Contrato.FromBuscarInmueble;
 import Vista.Contrato.FromBuscarInquilino;
 import Vista.Contrato.FromContrato;
 import Vista.Contrato.PanelContratoList;
+import Vista.Inmueble.PanelInmueble;
+import static Vista.Inmueble.PanelInmueble.cargarInmueblesFiltrados;
 import Vista.Inquilino.PanelInquilino;
 import Vista.fromMenu;
 import java.awt.event.ActionEvent;
@@ -196,6 +198,8 @@ public class CtrlContrato  implements ActionListener{
                         JOptionPane.showMessageDialog(null, "Contrato guardado");
                         
                         PanelContratoList.cargarContratos();
+                        //Vista.Inmueble.PanelInmueble.rbTodos.setSelected(true);
+                        Vista.Inmueble.PanelInmueble.cargarDisponibles();
                         
               
                     } else{ JOptionPane.showMessageDialog(null, "Error al Guardar");
