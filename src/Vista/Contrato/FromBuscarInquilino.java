@@ -11,6 +11,7 @@ import Inquilino.Modelo.ConsultasInquilno;
 import java.awt.event.WindowListener;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -29,7 +30,8 @@ public class FromBuscarInquilino extends javax.swing.JFrame {
    
     public FromBuscarInquilino() {
         initComponents();
-        
+        this.setLocationRelativeTo(null);
+        this.setIconImage(new ImageIcon(getClass().getResource("/imagenes/Inmo2.png")).getImage()) ;// poner imagen a jframe
         modeloInquilino = new DefaultTableModel(){
              @Override
                 public boolean isCellEditable(int row, int column) {
