@@ -118,21 +118,21 @@ public class fromMenu extends javax.swing.JFrame {
         jPanelContrato.setLayout(jPanelContratoLayout);
         jPanelContratoLayout.setHorizontalGroup(
             jPanelContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelContratoLayout.createSequentialGroup()
-                .addContainerGap(772, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContratoLayout.createSequentialGroup()
+                .addContainerGap(1082, Short.MAX_VALUE)
                 .addComponent(jButtonContratoNuevo)
                 .addGap(47, 47, 47)
                 .addComponent(jButtonContratoAbrir)
-                .addGap(549, 549, 549))
+                .addGap(239, 239, 239))
         );
         jPanelContratoLayout.setVerticalGroup(
             jPanelContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContratoLayout.createSequentialGroup()
-                .addContainerGap(331, Short.MAX_VALUE)
+            .addGroup(jPanelContratoLayout.createSequentialGroup()
+                .addGap(325, 325, 325)
                 .addGroup(jPanelContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonContratoNuevo)
                     .addComponent(jButtonContratoAbrir))
-                .addGap(370, 370, 370))
+                .addContainerGap(376, Short.MAX_VALUE))
         );
 
         jTabbedPaneMenu.addTab("Contrato", jPanelContrato);
@@ -277,7 +277,7 @@ public class fromMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPaneMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 1491, Short.MAX_VALUE)
+            .addComponent(jTabbedPaneMenu)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
