@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPaneMenu" alignment="0" max="32767" attributes="0"/>
+          <Component id="jTabbedPaneMenu" alignment="0" pref="1491" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -64,24 +64,24 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="653" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace pref="772" max="32767" attributes="0"/>
                       <Component id="jButtonContratoNuevo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       <Component id="jButtonContratoAbrir" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="544" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="549" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="472" max="32767" attributes="0"/>
+                      <EmptySpace pref="331" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButtonContratoNuevo" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonContratoAbrir" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="370" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -129,7 +129,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="979" max="32767" attributes="0"/>
+                      <EmptySpace pref="1090" max="32767" attributes="0"/>
                       <Component id="jSalirPro" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                   </Group>
@@ -197,7 +197,7 @@
                       <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="829" max="32767" attributes="0"/>
+                      <EmptySpace pref="940" max="32767" attributes="0"/>
                       <Component id="jbtnNuevoInquilino" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="jbtnAbrirInquilino" min="-2" max="-2" attributes="0"/>
@@ -296,7 +296,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="1205" max="32767" attributes="0"/>
+                      <EmptySpace pref="1316" max="32767" attributes="0"/>
                       <Component id="jSalirInm" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
                   </Group>

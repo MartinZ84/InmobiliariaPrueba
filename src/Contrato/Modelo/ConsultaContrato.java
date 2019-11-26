@@ -133,7 +133,8 @@ public class ConsultaContrato extends  Conexion {
                 
                 consultasInmueble.Buscar(inmueble);
                 consultasInquilino.Buscar(inquilino);
-                
+                contrato.setDni_inquilino(rs.getInt("dni_inquilino"));
+                contrato.setId_inmueble(rs.getInt("id_inmueble"));
                 contrato.setNombreInmueble(inmueble.getTipo_inmueble().getZona_inmueble() + " - " + inmueble.getDireccion_inmueble());
                 contrato.setNombreInquilino(inquilino.toString());
                 contrato.setId_contrato(rs.getInt("id_contrato"));
