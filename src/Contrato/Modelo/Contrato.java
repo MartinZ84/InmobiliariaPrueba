@@ -5,6 +5,8 @@
  */
 package Contrato.Modelo;
 
+import Inmueble.Modelo.Inmueble;
+import Inquilino.Modelo.Inquilino;
 import java.sql.Date;
 import java.time.LocalDate;
 
@@ -14,20 +16,19 @@ import java.time.LocalDate;
  */
 public class Contrato {
     private int id_contrato;
-    private int id_inmueble;
-    private int dni_inquilino;
+    private Inmueble inmueble;
+    private Inquilino inquilino;
     private String estado_contrato;
     private double monto;
     private short vigente;
     private LocalDate fecha_ini;
     private LocalDate fecha_fin;
-    private String nombreInquilino;
-    private String nombreInmueble;
+ 
 
-    public Contrato(int id_contrato, int id_inmueble, int dni_inquilino, String estado_contrato, double monto, short vigente, LocalDate fecha_ini, LocalDate fecha_fin) {
+    public Contrato(int id_contrato, Inmueble inmueble, Inquilino inquilino, String estado_contrato, double monto, short vigente, LocalDate fecha_ini, LocalDate fecha_fin) {
         this.id_contrato = id_contrato;
-        this.id_inmueble = id_inmueble;
-        this.dni_inquilino = dni_inquilino;
+        this.inmueble = inmueble;
+        this.inquilino = inquilino;
         this.estado_contrato = estado_contrato;
         this.monto = monto;
         this.vigente = vigente;
@@ -37,8 +38,6 @@ public class Contrato {
     
     public Contrato() {
         this.id_contrato = -1;
-        this.id_inmueble = -1;
-        this.dni_inquilino = -1;
         this.estado_contrato = "";
         this.monto = -1;
         this.vigente = -1;
@@ -54,20 +53,20 @@ public class Contrato {
         this.id_contrato = id_contrato;
     }
 
-    public int getId_inmueble() {
-        return id_inmueble;
+    public Inmueble getInmueble() {
+        return inmueble;
     }
 
-    public void setId_inmueble(int id_inmueble) {
-        this.id_inmueble = id_inmueble;
+    public void setInmueble(Inmueble inmueble) {
+        this.inmueble = inmueble;
     }
 
-    public int getDni_inquilino() {
-        return dni_inquilino;
+    public Inquilino getInquilino() {
+        return inquilino;
     }
 
-    public void setDni_inquilino(int dni_inquilino) {
-        this.dni_inquilino = dni_inquilino;
+    public void setInquilino(Inquilino inquilino) {
+        this.inquilino = inquilino;
     }
 
     public String getEstado_contrato() {
@@ -113,30 +112,22 @@ public class Contrato {
     /**
      * @return the nombreInquilino
      */
-    public String getNombreInquilino() {
-        return nombreInquilino;
-    }
+    
 
     /**
      * @param nombreInquilino the nombreInquilino to set
      */
-    public void setNombreInquilino(String nombreInquilino) {
-        this.nombreInquilino = nombreInquilino;
-    }
+    
 
     /**
      * @return the nombreInmueble
      */
-    public String getNombreInmueble() {
-        return nombreInmueble;
-    }
+   
 
     /**
      * @param nombreInmueble the nombreInmueble to set
      */
-    public void setNombreInmueble(String nombreInmueble) {
-        this.nombreInmueble = nombreInmueble;
-    }
+
     
    
     

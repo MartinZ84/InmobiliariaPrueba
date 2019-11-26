@@ -92,7 +92,9 @@ public class CtrlContrato  implements ActionListener{
                    
                     if (consContr.Modificar(contrato)){
                         Inmueble inmueble = new Inmueble();
-                        inmueble.setId_inmueble(contrato.getId_inmueble());
+                        ConsultasInmueble consultainm=new ConsultasInmueble();
+                        inmueble.setId_inmueble(contrato.getInmueble().getId_inmueble());
+                        consultainm.Buscar(inmueble);
                         if(contrato.getEstado_contrato().equals("VIGENTE")){
                             inmueble.setEstado_inmueble("No disponible");
                         }else{
@@ -184,8 +186,8 @@ public class CtrlContrato  implements ActionListener{
                 else {
                     contrato.setEstado_contrato(frmCon.jComboBoxEstadoContrato.getSelectedItem().toString());
                     contrato.setMonto(Double.parseDouble(frmCon.txtMonto.getText()));
-                    contrato.setId_inmueble(((Inmueble) frmCon.jComboBoxInmueble.getSelectedItem()).getId_inmueble());
-                    contrato.setDni_inquilino(((Inquilino) frmCon.jComboBoxInquilino.getSelectedItem()).getDni_inquilino());
+                    contrato.setInmueble(((Inmueble) frmCon.jComboBoxInmueble.getSelectedItem()));
+                    contrato.setInquilino(((Inquilino) frmCon.jComboBoxInquilino.getSelectedItem()));
                     contrato.setFecha_ini(  frmCon.jDateChooserFecIni.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
                     contrato.setFecha_fin(  frmCon.jDateChooserFecFin.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 

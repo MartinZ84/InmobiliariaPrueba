@@ -372,8 +372,8 @@ public class FromBuscarInmueble extends javax.swing.JFrame {
 
     private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed
         // TODO add your handling code here:
-        jComboBoxPropietarios.setSelectedIndex(-1);
-        jComboBoxTipInmueble.setSelectedIndex(-1);
+        jComboBoxPropietarios.setSelectedIndex(0);
+        jComboBoxTipInmueble.setSelectedIndex(0);
         txtDireccion.setText("");
         jRadioButtonTodos.setSelected(true);
     }//GEN-LAST:event_jButtonLimpiarActionPerformed

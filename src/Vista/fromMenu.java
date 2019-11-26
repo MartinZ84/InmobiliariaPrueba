@@ -503,7 +503,7 @@ public class fromMenu extends javax.swing.JFrame {
             ArrayList<Inquilino> inquilinos=new ArrayList<Inquilino>();
             cdInquilino.obtenerInquilinos(inquilinos);
             for(Inquilino inq:inquilinos ){
-                if(contrato.getDni_inquilino() == inq.getDni_inquilino()){
+                if(contrato.getInquilino().getDni_inquilino() == inq.getDni_inquilino()){
 
                     fromCont.jComboBoxInquilino.getModel().setSelectedItem(inq);
                     break;
@@ -512,7 +512,7 @@ public class fromMenu extends javax.swing.JFrame {
             ArrayList<Inmueble> inmuebles=new ArrayList<Inmueble>();
             cdInmueble.obtenerInmuebles(inmuebles);
             for(Inmueble inm:inmuebles ){
-                if(contrato.getId_inmueble() == inm.getId_inmueble()){
+                if(contrato.getInmueble().getId_inmueble() == inm.getId_inmueble()){
 
                     fromCont.jComboBoxInmueble.getModel().setSelectedItem(inm);
                     break;

@@ -40,8 +40,8 @@ public class ConsultaContrato extends  Conexion {
          try {
             ps=con.prepareStatement(sql);
             //ps.setInt(1,cont.getId_contrato());
-            ps.setInt(1, cont.getId_inmueble());
-            ps.setInt(2, cont.getDni_inquilino());
+            ps.setInt(1, cont.getInmueble().getId_inmueble());
+            ps.setInt(2, cont.getInquilino().getDni_inquilino());
             ps.setString(3, cont.getEstado_contrato());
             ps.setDouble(4,cont.getMonto());
             ps.setDate(5, Date.valueOf(cont.getFecha_ini().toString()));
@@ -55,7 +55,7 @@ public class ConsultaContrato extends  Conexion {
             
             ps=con.prepareStatement(sql2);
             ps.setString(1,"No disponible");
-            ps.setInt(2, cont.getId_inmueble());
+            ps.setInt(2, cont.getInmueble().getId_inmueble());
             ps.execute();
             
             
@@ -78,13 +78,14 @@ public class ConsultaContrato extends  Conexion {
    
    public boolean Modificar(Contrato cont){
        
-        String sql = "UPDATE contrato SET estado_contrato  = ? where id_contrato = ?; ";
+        String sql = "UPDATE contrato SET estado_contrato  = ?, monto=?, where id_contrato = ?; ";
               //      + " UPDATE inmueble SET estado_inmueble = ? where id_inmueble = ?;"; 
         
          try {
             ps=con.prepareStatement(sql);
             ps.setString(1, cont.getEstado_contrato());
-            ps.setInt(2, cont.getId_contrato());
+            ps.setInt(3, cont.getId_contrato());
+            ps.setDouble(2, cont.getMonto());
 //            if(cont.getEstado_contrato().equals("VIGENTE")){
 //                ps.setString(3, "No disponible");
 //            }else{
@@ -127,21 +128,17 @@ public class ConsultaContrato extends  Conexion {
                 Contrato contrato = new Contrato();
                 Inmueble inmueble = new Inmueble();
                 Inquilino inquilino = new Inquilino();
-                
                 inmueble.setId_inmueble(rs.getInt("id_inmueble"));
                 inquilino.setDni_inquilino(rs.getInt("dni_inquilino"));
-                
                 consultasInmueble.Buscar(inmueble);
                 consultasInquilino.Buscar(inquilino);
-                contrato.setDni_inquilino(rs.getInt("dni_inquilino"));
-                contrato.setId_inmueble(rs.getInt("id_inmueble"));
-                contrato.setNombreInmueble(inmueble.getTipo_inmueble().getZona_inmueble() + " - " + inmueble.getDireccion_inmueble());
-                contrato.setNombreInquilino(inquilino.toString());
+                contrato.setInquilino(inquilino);
+                contrato.setInmueble(inmueble);
                 contrato.setId_contrato(rs.getInt("id_contrato"));
                 contrato.setEstado_contrato(rs.getString("estado_contrato"));
                 contrato.setMonto(rs.getDouble("monto"));
                 contrato.setFecha_ini(rs.getDate("fecha_ini").toLocalDate());
-               contrato.setFecha_fin(rs.getDate("fecha_fin").toLocalDate()); 
+                contrato.setFecha_fin(rs.getDate("fecha_fin").toLocalDate()); 
                 contratos.add(contrato);
     
             }
@@ -201,27 +198,20 @@ public class ConsultaContrato extends  Conexion {
      
             if(rs.next()){
                 ConsultasInmueble consultasInmueble=new ConsultasInmueble();
-                 ConsultasInquilno consultasInquilino=new ConsultasInquilno();
-            
-               
+                ConsultasInquilno consultasInquilino=new ConsultasInquilno();
                 Inmueble inmueble = new Inmueble();
                 Inquilino inquilino = new Inquilino();
-                
                 inmueble.setId_inmueble(rs.getInt("id_inmueble"));
                 inquilino.setDni_inquilino(rs.getInt("dni_inquilino"));
-                
                 consultasInmueble.Buscar(inmueble);
                 consultasInquilino.Buscar(inquilino);
-                
-                contrato.setNombreInmueble(inmueble.getTipo_inmueble().getZona_inmueble() + " - " + inmueble.getDireccion_inmueble());
-                contrato.setNombreInquilino(inquilino.toString());
-                contrato.setId_inmueble(inmueble.getId_inmueble());
-                contrato.setDni_inquilino(inquilino.getDni_inquilino());
+                contrato.setInmueble(inmueble);
+                contrato.setInquilino(inquilino);
                 contrato.setId_contrato(rs.getInt("id_contrato"));
                 contrato.setEstado_contrato(rs.getString("estado_contrato"));
                 contrato.setMonto(rs.getDouble("monto"));
                 contrato.setFecha_ini(rs.getDate("fecha_ini").toLocalDate());
-               contrato.setFecha_fin(rs.getDate("fecha_fin").toLocalDate()); 
+                contrato.setFecha_fin(rs.getDate("fecha_fin").toLocalDate()); 
                 return true;
             }
             ps.close();
@@ -255,30 +245,23 @@ public class ConsultaContrato extends  Conexion {
 
             while (rs.next()){
        
-            contrato = new Contrato() ;
-             ConsultasInmueble consultasInmueble=new ConsultasInmueble();
-                 ConsultasInquilno consultasInquilino=new ConsultasInquilno();
-            
-               
+                contrato = new Contrato() ;
+                ConsultasInmueble consultasInmueble=new ConsultasInmueble();
+                ConsultasInquilno consultasInquilino=new ConsultasInquilno();
                 Inmueble inmueble = new Inmueble();
                 Inquilino inquilino = new Inquilino();
-                
                 inmueble.setId_inmueble(rs.getInt("id_inmueble"));
                 inquilino.setDni_inquilino(rs.getInt("dni_inquilino"));
-                
                 consultasInmueble.Buscar(inmueble);
                 consultasInquilino.Buscar(inquilino);
-                
-                contrato.setNombreInmueble(inmueble.getTipo_inmueble().getZona_inmueble() + " - " + inmueble.getDireccion_inmueble());
-                contrato.setNombreInquilino(inquilino.toString());
-                contrato.setId_inmueble(inmueble.getId_inmueble());
-                contrato.setDni_inquilino(inquilino.getDni_inquilino());
+                contrato.setInmueble(inmueble);
+                contrato.setInquilino(inquilino);
                 contrato.setId_contrato(rs.getInt("id_contrato"));
                 contrato.setEstado_contrato(rs.getString("estado_contrato"));
                 contrato.setMonto(rs.getDouble("monto"));
                 contrato.setFecha_ini(rs.getDate("fecha_ini").toLocalDate());
-               contrato.setFecha_fin(rs.getDate("fecha_fin").toLocalDate()); 
-            contratos.add(contrato);
+                contrato.setFecha_fin(rs.getDate("fecha_fin").toLocalDate()); 
+                contratos.add(contrato);
         }
        
         ps.close();

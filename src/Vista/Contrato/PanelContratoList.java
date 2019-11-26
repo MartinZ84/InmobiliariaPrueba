@@ -105,19 +105,15 @@ public class PanelContratoList extends javax.swing.JPanel {
     }
      
      public static void cargarContratos(){
-            Inmueble inmgrilla=new Inmueble();
-            ConsultasInmueble consgrill=new ConsultasInmueble();
             contratos.clear();
             consultaContrato.obtenerContratos(contratos);
             borrarContratos();
             for(Contrato con:contratos){
-                inmgrilla.setId_inmueble(con.getId_inmueble());
-                consgrill.Buscar(inmgrilla);
                 modeloContrato.addRow(new Object[] {
                     con.getId_contrato(), 
-                    con.getNombreInquilino(), 
-                    inmgrilla.getTipo_inmueble()+". "+inmgrilla.getDireccion_inmueble(),
-                    inmgrilla.getPropietario().getApellido_propietario()+", "+inmgrilla.getPropietario().getNombre_propietario(),
+                    con.getInquilino().getApellido_inquilino()+", "+con.getInquilino().getNombre_inquilino(), 
+                    con.getInmueble().getTipo_inmueble()+". "+con.getInmueble().getDireccion_inmueble(),
+                    con.getInmueble().getPropietario().getApellido_propietario()+", "+con.getInmueble().getPropietario().getNombre_propietario(),
                     con.getEstado_contrato(),
                     con.getFecha_ini().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
                     con.getFecha_fin().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
@@ -143,8 +139,8 @@ public class PanelContratoList extends javax.swing.JPanel {
        for(Contrato con:contratos){
            modeloContrato.addRow(new Object[] {
                     con.getId_contrato(), 
-                    con.getNombreInquilino(), 
-                    con.getNombreInmueble(),
+                    con.getInquilino().getApellido_inquilino()+", "+con.getInquilino().getNombre_inquilino(),
+                    con.getInmueble().getTipo_inmueble()+". "+con.getInmueble().getDireccion_inmueble(),
                     con.getEstado_contrato(),
                     con.getFecha_ini().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
                     con.getFecha_fin().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
@@ -399,6 +395,11 @@ public class PanelContratoList extends javax.swing.JPanel {
         
            if (contratoBus.isEmpty()){
                JOptionPane.showMessageDialog(null, "No se encontraron resultados");
+               this.jComboBoxFinderInmueble.setSelectedIndex(-1);
+               this.jComboBoxFinderInquilino.setSelectedIndex(-1);
+               this.jComboBoxFinderEstadoContrato.setSelectedIndex(0);
+               cargarContratos();
+               
             }else{
                 cargarContratosBus((ArrayList)contratoBus);
            }
