@@ -98,6 +98,6 @@ public class Inmueble {
     }
     
     public String toString(){
-        return this.id_inmueble + ", " + this.tipo_inmueble.getTipo_inmueble()+", "+this.direccion_inmueble;
+        return this.id_inmueble + ", " + this.tipo_inmueble.getTipo_inmueble()+", "+this.tipo_inmueble.getZona_inmueble()+". "+this.direccion_inmueble;
     }
 }
