@@ -447,16 +447,18 @@ public class PanelInmueble extends javax.swing.JPanel {
         ConsultasInmueble consultainmueble= new ConsultasInmueble();
         if(tabInmuebles.getRowCount()!=0)
         {
-            
-               if(consultainmueble.Borrar((Integer)tabInmuebles.getValueAt(tabInmuebles.getSelectedRow(),0)))
+            if(tabInmuebles.getSelectedRow()!=-1){
+            if(consultainmueble.Borrar((Integer)tabInmuebles.getValueAt(tabInmuebles.getSelectedRow(),0)))
              {
+                 
             int rowselected=tabInmuebles.getSelectedRow();
             modeloinmuebles.removeRow(rowselected);
             cargarInmueblesFiltrados(); 
             JOptionPane.showMessageDialog(null, "Inmueble eliminado");
+                 
             
             } else JOptionPane.showMessageDialog(null,"No se pudo eliminar inmueble. Verifique si esta asociado a un contrato.");
-            
+            } else JOptionPane.showMessageDialog(null,"No ha seleccionado ninguna fila.");
         }
     }//GEN-LAST:event_btnEliminarInmuebleActionPerformed
 
