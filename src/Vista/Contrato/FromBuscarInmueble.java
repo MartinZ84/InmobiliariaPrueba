@@ -38,6 +38,7 @@ public class FromBuscarInmueble extends javax.swing.JFrame {
     public FromBuscarInmueble() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
         this.setIconImage(new ImageIcon(getClass().getResource("/imagenes/Inmo2.png")).getImage()) ;// poner imagen a jframe
         modeloInmuebles = new DefaultTableModel(){
              @Override
@@ -189,7 +190,7 @@ public class FromBuscarInmueble extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Busqueda"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Busqueda Inmuebles Disponibles"));
 
         jButtonBuscar.setText("Buscar");
         jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {

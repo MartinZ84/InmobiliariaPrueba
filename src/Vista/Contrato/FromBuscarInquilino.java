@@ -30,6 +30,7 @@ public class FromBuscarInquilino extends javax.swing.JFrame {
    
     public FromBuscarInquilino() {
         initComponents();
+        this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setIconImage(new ImageIcon(getClass().getResource("/imagenes/Inmo2.png")).getImage()) ;// poner imagen a jframe
         modeloInquilino = new DefaultTableModel(){

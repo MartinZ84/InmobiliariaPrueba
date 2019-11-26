@@ -26,6 +26,7 @@ public class FormInmueble extends javax.swing.JFrame {
         dispnodisp.add(rbNodisponible);
         this.setIconImage(new ImageIcon(getClass().getResource("/imagenes/Inmo2.png")).getImage()) ;// poner imagen a jframe
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
     private void jtTxtsuperficie(java.awt.event.KeyEvent evt){
         char c=evt.getKeyChar();      

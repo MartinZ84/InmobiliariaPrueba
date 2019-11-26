@@ -18,6 +18,7 @@ public class FrmInquilino extends javax.swing.JFrame {
      */
     public FrmInquilino() {
         initComponents();
+        this.setResizable(false);
          this.setIconImage(new ImageIcon(getClass().getResource("/imagenes/Inmo2.png")).getImage()) ;// poner imagen a jframe
     }
 
