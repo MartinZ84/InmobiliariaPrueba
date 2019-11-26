@@ -214,9 +214,11 @@ public class PanelContratoList extends javax.swing.JPanel {
                     con.getFecha_fin().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
                 });
 
+
             }
      }
       
+
 
     public void limpiar(){
          this.jComboBoxFinderInmueble.setSelectedIndex(0);
