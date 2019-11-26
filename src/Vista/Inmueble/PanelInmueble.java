@@ -76,7 +76,7 @@ public class PanelInmueble extends javax.swing.JPanel {
     public static void cargarInmuebles(ArrayList<Inmueble> inmuebles){
         borrarInmuebles();
         for(Inmueble i:inmuebles){
-            modeloinmuebles.addRow(new Object[] {i.getId_inmueble(),i.getTipo_inmueble(),i.getPropietario().getApellido_propietario(),i.getSuperficie(),i.getPrecio_base(),i.getEstado_inmueble()});
+            modeloinmuebles.addRow(new Object[] {i.getId_inmueble(),i.getTipo_inmueble(),i.getPropietario().getApellido_propietario() +" " + i.getPropietario().getNombre_propietario(),i.getSuperficie(),i.getPrecio_base(),i.getEstado_inmueble()});
         }
         
     }
