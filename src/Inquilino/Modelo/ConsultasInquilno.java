@@ -298,6 +298,42 @@ public boolean Buscar(Inquilino inquilino){
          //System.out.println("Alumno: id: " + alumno.getId() + "; Nombre:  " + alumno.getNombre() +"; Dni: " + alumno.getDni() +"; Domicilio:  " +alumno.getDomicilio()) ;       
          return inquilinos;
     }//FIN buscar x nombre
+   
+    public List <Inquilino>  busquedaEspecifica(StringBuffer query) {
+        List <Inquilino> inquilinos= new ArrayList<Inquilino>();
+        Inquilino inquilino;
+        PreparedStatement ps = null;
+        Connection con = conexion();
+        
+        try{
+            String sql = query.toString() ;
+            ps = con.prepareStatement(sql); //, Statement.RETURN_GENERATED_KEYS);
+            ResultSet rs=  ps.executeQuery();
+
+            while (rs.next()){
+       
+            inquilino = new Inquilino() ;
+            inquilino.setDni_inquilino(rs.getInt("dni_inquilino"));
+            inquilino.setNombre_inquilino(rs.getString("nombre_inquilino"));
+            inquilino.setApellido_inquilino(rs.getString("apellido_inquilino"));
+            inquilino.setCuit_inquilino(rs.getString("cuit_inquilino"));
+            inquilino.setLugar_trabajo_inquilino(rs.getString("lugar_trabajo_inquilino"));
+            inquilino.setNom_garante_inquilino(rs.getString("nom_garante_inquilino"));
+            inquilino.setDni_garante_inquilino(rs.getInt("dni_garante_inquilino"));
+            inquilinos.add(inquilino);
+        }
+       
+        ps.close();
+        
+        } catch (SQLException ex){
+            
+           
+            System.out.println("Error al  buscar " + ex.getMessage());
+        }
+         //System.out.println("Alumno: id: " + alumno.getId() + "; Nombre:  " + alumno.getNombre() +"; Dni: " + alumno.getDni() +"; Domicilio:  " +alumno.getDomicilio()) ;       
+         return inquilinos;
+
+}
     
       
 /*public boolean buscarInquilinoXNombre(Inquilino inquilino){

@@ -8,13 +8,20 @@ package Vista.Contrato;
 import Conexion.Conexion;
 import Contrato.Modelo.ConsultaContrato;
 import Contrato.Modelo.*;
+import Inmueble.Modelo.ConsultasInmueble;
+import Inmueble.Modelo.Inmueble;
+import Inquilino.Modelo.ConsultasInquilno;
+import Inquilino.Modelo.Inquilino;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -25,7 +32,11 @@ public class PanelContratoList extends javax.swing.JPanel {
     
     public static DefaultTableModel modeloContrato = new DefaultTableModel();
     private static ConsultaContrato consultaContrato=new ConsultaContrato();
-    private static ArrayList<Contrato> contratos=new ArrayList<Contrato>();
+     private static ArrayList<Contrato> contratos=new ArrayList<Contrato>();
+    private ConsultasInmueble consultaInmueble=new ConsultasInmueble();    
+    private ConsultasInquilno consultaInquilino=new ConsultasInquilno();
+    private ArrayList<Inmueble> inmuebles=new ArrayList<Inmueble>();
+    private ArrayList<Inquilino> inquilinos=new ArrayList<Inquilino>();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,9 +46,35 @@ public class PanelContratoList extends javax.swing.JPanel {
     
      public PanelContratoList() {
         initComponents();
+        modeloContrato= new DefaultTableModel(){ 
+            @Override
+	 public boolean isCellEditable(int row, int column) {
+         return false;
+	}
+	};
         armarCabeceraContrato();
         cargarContratos();
+        
+        //---CARGAR COMBOS BUSQUEDA
+        cargarInmueble();
+        cargarInquilino();
+        
      }
+     public void cargarInmueble(){
+            consultaInmueble.obtenerInmuebles(inmuebles);
+        this.jComboBoxFinderInmueble.addItem(null);
+         for(Inmueble elem:inmuebles){
+            this.jComboBoxFinderInmueble.addItem(elem);
+         }
+    }
+    
+    public void cargarInquilino(){
+        consultaInquilino.obtenerInquilinos(inquilinos);
+        this.jComboBoxFinderInquilino.addItem(null);
+         for(Inquilino elem:inquilinos){
+            this.jComboBoxFinderInquilino.addItem(elem);
+         }
+    }
      
      public void armarCabeceraContrato(){
          ArrayList<Object> columnasC=new ArrayList<Object>();
@@ -45,15 +82,13 @@ public class PanelContratoList extends javax.swing.JPanel {
             columnasC.add("Inquilino");
             columnasC.add("Inmueble");
             columnasC.add("Estado");
+            columnasC.add("Fecha Inicio");
             columnasC.add("Fecha Fin");
         for(Object col:columnasC) {
             modeloContrato.addColumn(col);
         }
         jTableContrato.setModel(modeloContrato);
      }
-     
-     
-     
      public static void borrarContratos(){
         int c = modeloContrato.getRowCount()-1;
         for(int i=c;i>=0;i--)
@@ -68,13 +103,41 @@ public class PanelContratoList extends javax.swing.JPanel {
                 modeloContrato.addRow(new Object[] {
                     con.getId_contrato(), 
                     con.getNombreInquilino(), 
-                    con.getNombreInquilino(),
+                    con.getNombreInmueble(),
                     con.getEstado_contrato(),
+                    con.getFecha_ini().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
                     con.getFecha_fin().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
                 });
             }
-         }
-    
+     }
+     
+     public static Contrato  obtenerContratoDeTabla(){
+        Contrato contrato=new Contrato();
+          
+        int fila;
+        fila = jTableContrato.getSelectedRow();
+        if (fila > -1){
+            contrato.setId_contrato((int)jTableContrato.getValueAt(fila, 0));
+            consultaContrato.Buscar(contrato);
+            return contrato;
+        } else{ 
+            return null;      
+        }
+      }
+      public static void cargarContratosBus(ArrayList<Contrato> contratos){
+        borrarContratos();
+       for(Contrato con:contratos){
+           modeloContrato.addRow(new Object[] {
+                    con.getId_contrato(), 
+                    con.getNombreInquilino(), 
+                    con.getNombreInmueble(),
+                    con.getEstado_contrato(),
+                    con.getFecha_ini().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+                    con.getFecha_fin().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+                });
+        }
+        
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -83,19 +146,22 @@ public class PanelContratoList extends javax.swing.JPanel {
         jTableContrato = new javax.swing.JTable();
         jPanelBusqueda = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextNomb = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
         jButtonBuscar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jComboBoxFinderInmueble = new javax.swing.JComboBox();
+        jLabel3 = new javax.swing.JLabel();
+        jComboBoxFinderInquilino = new javax.swing.JComboBox<Inquilino>();
+        jComboBoxFinderEstadoContrato = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jDateChooserFecIniDesde = new com.toedter.calendar.JDateChooser();
+        jLabel9 = new javax.swing.JLabel();
+        jDateChooserFecIniHasta = new com.toedter.calendar.JDateChooser();
+        jLabel10 = new javax.swing.JLabel();
+        jDateChooserFecFinDesde = new com.toedter.calendar.JDateChooser();
+        jLabel11 = new javax.swing.JLabel();
+        jDateChooserFecFinHasta = new com.toedter.calendar.JDateChooser();
+        jButtonBuscarLimpiar = new javax.swing.JButton();
 
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -129,16 +195,6 @@ public class PanelContratoList extends javax.swing.JPanel {
 
         jLabel1.setText("Busqueda Contrato:");
 
-        jLabel2.setText("Nombre");
-
-        jTextNomb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextNombActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("Apellido:");
-
         jButtonBuscar.setText("Buscar");
         jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,13 +202,34 @@ public class PanelContratoList extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setText("DNI:");
+        jLabel2.setText("Inmueble:");
 
-        jLabel5.setText("Domicilio:");
+        jComboBoxFinderInmueble.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxFinderInmuebleActionPerformed(evt);
+            }
+        });
 
-        jLabel6.setText("DNI:");
+        jLabel3.setText("Inquilino:");
 
-        jLabel7.setText("Domicilio:");
+        jComboBoxFinderEstadoContrato.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TODOS", "VIGENTE", "NO VIGENTE" }));
+
+        jLabel4.setText("Estado contrato:");
+
+        jLabel8.setText("Fecha Inicio desde:");
+
+        jLabel9.setText("Hasta:");
+
+        jLabel10.setText("Fecha Fin desde:");
+
+        jLabel11.setText("Hasta:");
+
+        jButtonBuscarLimpiar.setText("Limpiar");
+        jButtonBuscarLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBuscarLimpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelBusquedaLayout = new javax.swing.GroupLayout(jPanelBusqueda);
         jPanelBusqueda.setLayout(jPanelBusquedaLayout);
@@ -163,38 +240,48 @@ public class PanelContratoList extends javax.swing.JPanel {
                 .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelBusquedaLayout.createSequentialGroup()
                         .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBoxFinderInmueble, 0, 271, Short.MAX_VALUE)
+                            .addComponent(jComboBoxFinderInquilino, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(30, 30, 30))
+                    .addGroup(jPanelBusquedaLayout.createSequentialGroup()
+                        .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
                             .addGroup(jPanelBusquedaLayout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField4))
+                                .addGap(31, 31, 31)
+                                .addComponent(jComboBoxFinderEstadoContrato, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanelBusquedaLayout.createSequentialGroup()
                                 .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jButtonBuscar)
-                                        .addGroup(jPanelBusquedaLayout.createSequentialGroup()
-                                            .addComponent(jLabel2)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jTextNomb, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jLabel3)
-                                            .addGap(12, 12, 12)
-                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jLabel1))
-                                .addGap(0, 2, Short.MAX_VALUE)))
-                        .addGap(10, 10, 10))
-                    .addGroup(jPanelBusquedaLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField6)
+                                    .addGroup(jPanelBusquedaLayout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addGap(29, 29, 29)
+                                        .addComponent(jDateChooserFecFinDesde, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanelBusquedaLayout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jDateChooserFecIniDesde, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanelBusquedaLayout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jLabel11)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jDateChooserFecFinHasta, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBusquedaLayout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jDateChooserFecIniHasta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                         .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusquedaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonBuscar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonBuscarLimpiar)
+                .addGap(13, 13, 13))
         );
         jPanelBusquedaLayout.setVerticalGroup(
             jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,23 +290,31 @@ public class PanelContratoList extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextNomb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxFinderInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addComponent(jButtonBuscar)
+                    .addComponent(jLabel3)
+                    .addComponent(jComboBoxFinderInquilino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jComboBoxFinderEstadoContrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel9)
+                    .addComponent(jDateChooserFecIniDesde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(jDateChooserFecIniHasta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel11)
+                    .addComponent(jDateChooserFecFinDesde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10)
+                    .addComponent(jDateChooserFecFinHasta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonBuscar)
+                    .addComponent(jButtonBuscarLimpiar))
                 .addContainerGap())
         );
 
@@ -228,52 +323,104 @@ public class PanelContratoList extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanelBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 220, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
         getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextNombActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNombActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextNombActionPerformed
-
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-
+// TODO add your handling code here:
+        List <Contrato> contratoBus = new ArrayList<Contrato>() ;
+        ConsultaContrato cdContrato = new ConsultaContrato();
+        
+         StringBuffer buffer = new StringBuffer( "SELECT * FROM contrato WHERE 1=1 " );
+         
+                    
+        if(jComboBoxFinderInmueble.getSelectedItem() != null && ((Inmueble) jComboBoxFinderInmueble.getSelectedItem()).getId_inmueble() != -1 ){
+            buffer.append(" AND id_inmueble = " + ((Inmueble) jComboBoxFinderInmueble.getSelectedItem()).getId_inmueble());
+        } 
+        if(jComboBoxFinderInquilino.getSelectedItem() != null && ((Inquilino) jComboBoxFinderInquilino.getSelectedItem()).getDni_inquilino() != -1 ){
+            buffer.append(" AND dni_inquilino = " + ((Inquilino) jComboBoxFinderInquilino.getSelectedItem()).getDni_inquilino() );
+        }
+        if (jComboBoxFinderEstadoContrato.getSelectedItem().toString().equals("VIGENTE")){
+            buffer.append(" AND estado_contrato = 'VIGENTE'");
+        }
+        
+        if (jComboBoxFinderEstadoContrato.getSelectedItem().toString().equals("NO VIGENTE")){
+            buffer.append(" AND estado_contrato = 'NO VIGENTE'");
+        }
+       // CONVERT('2019-10-31', DATETIME)
+        if(jDateChooserFecIniDesde.getDate() != null){
+            if(jDateChooserFecIniHasta.getDate() != null){
+                    buffer.append(" AND fecha_ini >= CONVERT('" + jDateChooserFecIniDesde.getDate().toInstant().atZone(ZoneId.systemDefault()).toString() + "', DATETIME)"); 
+                    buffer.append(" AND fecha_ini <= CONVERT('" + jDateChooserFecIniHasta.getDate().toInstant().atZone(ZoneId.systemDefault()).toString() + "', DATETIME)");
+            }else{
+                    buffer.append(" AND fecha_ini >= CONVERT('" + jDateChooserFecIniDesde.getDate().toInstant().atZone(ZoneId.systemDefault()).toString() + "', DATETIME)");
+            }
+            
+        }
+        if(jDateChooserFecFinDesde.getDate() != null){
+            if(jDateChooserFecFinHasta.getDate() != null){
+                    buffer.append(" AND fecha_fin >= CONVERT('" + jDateChooserFecFinDesde.getDate().toInstant().atZone(ZoneId.systemDefault()).toString() + "', DATETIME)"); 
+                    buffer.append(" AND fecha_fin <= CONVERT('" + jDateChooserFecFinHasta.getDate().toInstant().atZone(ZoneId.systemDefault()).toString() + "', DATETIME)");
+            }else{
+                    buffer.append(" AND fecha_fin >= CONVERT('" + jDateChooserFecFinDesde.getDate().toInstant().atZone(ZoneId.systemDefault()).toString() + "', DATETIME)");
+            }
+            
+        }
+         contratoBus = cdContrato.busquedaEspecifica(buffer);
+        
+           if (contratoBus.isEmpty()){
+               JOptionPane.showMessageDialog(null, "No se encontraron resultados");
+            }else{
+                cargarContratosBus((ArrayList)contratoBus);
+           }
     }//GEN-LAST:event_jButtonBuscarActionPerformed
+
+    private void jComboBoxFinderInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxFinderInmuebleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxFinderInmuebleActionPerformed
+
+    private void jButtonBuscarLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarLimpiarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonBuscarLimpiarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonBuscar;
+    public javax.swing.JButton jButtonBuscar;
+    public javax.swing.JButton jButtonBuscarLimpiar;
+    public javax.swing.JComboBox jComboBoxFinderEstadoContrato;
+    public javax.swing.JComboBox jComboBoxFinderInmueble;
+    public javax.swing.JComboBox<Inquilino> jComboBoxFinderInquilino;
+    public com.toedter.calendar.JDateChooser jDateChooserFecFinDesde;
+    public com.toedter.calendar.JDateChooser jDateChooserFecFinHasta;
+    public com.toedter.calendar.JDateChooser jDateChooserFecIniDesde;
+    public com.toedter.calendar.JDateChooser jDateChooserFecIniHasta;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     public javax.swing.JPanel jPanelBusqueda;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable jTableContrato;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextNomb;
+    public static javax.swing.JTable jTableContrato;
     // End of variables declaration//GEN-END:variables
 }

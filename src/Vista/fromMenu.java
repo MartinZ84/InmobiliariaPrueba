@@ -21,9 +21,12 @@ import javax.swing.table.DefaultTableModel;
 import Inquilino.Modelo.ConsultasInquilno;
 import Inquilino.Controlador.CtrInquilino;
 import Vista.Contrato.FromContrato;
+import Vista.Contrato.PanelContratoList;
 import Vista.Inmueble.PanelInmueble;
 import Vista.Inquilino.PanelInquilino;
 import java.awt.Dimension;
+import java.time.ZoneId;
+import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -47,6 +50,7 @@ public class fromMenu extends javax.swing.JFrame {
          cargarPanelInmueble();
          cargarPanelInquilino();
          cargarPanelPropietario();
+         cargarPanelContrato();
                  //panelinmueble.setEnabled(true);
                  //panelinmueble.setVisible(true);
         this.setTitle("Inmobliaria");
@@ -73,7 +77,8 @@ public class fromMenu extends javax.swing.JFrame {
 
         jTabbedPaneMenu = new javax.swing.JTabbedPane();
         jPanelContrato = new javax.swing.JPanel();
-        jButtonContrato = new javax.swing.JButton();
+        jButtonContratoNuevo = new javax.swing.JButton();
+        jButtonContratoAbrir = new javax.swing.JButton();
         jPanelPropietario = new javax.swing.JPanel();
         jSalirPro = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -95,10 +100,17 @@ public class fromMenu extends javax.swing.JFrame {
             }
         });
 
-        jButtonContrato.setText("Nuevo");
-        jButtonContrato.addActionListener(new java.awt.event.ActionListener() {
+        jButtonContratoNuevo.setText("Nuevo");
+        jButtonContratoNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonContratoActionPerformed(evt);
+                jButtonContratoNuevoActionPerformed(evt);
+            }
+        });
+
+        jButtonContratoAbrir.setText("Abrir");
+        jButtonContratoAbrir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonContratoAbrirActionPerformed(evt);
             }
         });
 
@@ -107,16 +119,20 @@ public class fromMenu extends javax.swing.JFrame {
         jPanelContratoLayout.setHorizontalGroup(
             jPanelContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContratoLayout.createSequentialGroup()
-                .addGap(408, 408, 408)
-                .addComponent(jButtonContrato)
-                .addContainerGap(904, Short.MAX_VALUE))
+                .addGap(653, 653, 653)
+                .addComponent(jButtonContratoNuevo)
+                .addGap(60, 60, 60)
+                .addComponent(jButtonContratoAbrir)
+                .addContainerGap(544, Short.MAX_VALUE))
         );
         jPanelContratoLayout.setVerticalGroup(
             jPanelContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelContratoLayout.createSequentialGroup()
-                .addGap(163, 163, 163)
-                .addComponent(jButtonContrato)
-                .addContainerGap(538, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContratoLayout.createSequentialGroup()
+                .addContainerGap(472, Short.MAX_VALUE)
+                .addGroup(jPanelContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonContratoNuevo)
+                    .addComponent(jButtonContratoAbrir))
+                .addGap(229, 229, 229))
         );
 
         jTabbedPaneMenu.addTab("Contrato", jPanelContrato);
@@ -330,6 +346,25 @@ public class fromMenu extends javax.swing.JFrame {
                 .addContainerGap(537, Short.MAX_VALUE))
         );
     }
+    private void cargarPanelContrato(){
+        PanelContratoList panelContratoList=new PanelContratoList();
+                 javax.swing.GroupLayout jPanelContratoLayout = new javax.swing.GroupLayout(jPanelContrato);
+                jPanelContrato.setLayout(jPanelContratoLayout);
+        jPanelContratoLayout.setHorizontalGroup(
+            jPanelContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelContratoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelContratoList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(519, Short.MAX_VALUE))
+        );
+        jPanelContratoLayout.setVerticalGroup(
+            jPanelContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelContratoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelContratoList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(537, Short.MAX_VALUE))
+        );
+    }
     private void jTabbedPaneMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPaneMenuMouseClicked
         // TODO add your handling code here:
        
@@ -424,19 +459,6 @@ public class fromMenu extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_jSalirInqMouseClicked
 
-    private void jButtonContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonContratoActionPerformed
-        // TODO add your handling code here:
-         Contrato cont = new Contrato();
-        ConsultaContrato podCont = new ConsultaContrato();
-        FromContrato frmCont = new FromContrato();
-
-        CtrlContrato ctrl = new CtrlContrato(cont,podCont,frmCont);
-        ctrl.iniciar();
-        this.setEnabled(false);
-        //-----------------        
-        frmCont.setVisible(true);
-    }//GEN-LAST:event_jButtonContratoActionPerformed
-
     private void jSalirInmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSalirInmMouseClicked
         // TODO add your handling code here:
            int i =JOptionPane.showConfirmDialog(this,"¿Desea Salir del sistema?","Confirmar salida",JOptionPane.YES_NO_OPTION);
@@ -445,6 +467,72 @@ public class fromMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(Login.EXIT_ON_CLOSE);
             }
     }//GEN-LAST:event_jSalirInmMouseClicked
+
+    private void jButtonContratoNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonContratoNuevoActionPerformed
+        // TODO add your handling code here:
+        Contrato cont = new Contrato();
+        ConsultaContrato podCont = new ConsultaContrato();
+        FromContrato frmCont = new FromContrato();
+
+        CtrlContrato ctrl = new CtrlContrato(cont,podCont,frmCont);
+        ctrl.iniciar();
+
+    }//GEN-LAST:event_jButtonContratoNuevoActionPerformed
+
+    private void jButtonContratoAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonContratoAbrirActionPerformed
+        // TODO add your handling code here:
+        Contrato contrato = new Contrato();
+        ConsultaContrato cdContrato = new ConsultaContrato();
+        ConsultasInquilno cdInquilino = new ConsultasInquilno();
+        ConsultasInmueble cdInmueble = new ConsultasInmueble();
+        FromContrato fromCont = new FromContrato();
+
+        contrato = PanelContratoList.obtenerContratoDeTabla();
+        if (contrato==null)
+        { JOptionPane.showMessageDialog(null, "No se selecciono ningun inquilino de la tabla");}
+        else {
+            cdContrato.Buscar(contrato);
+            fromCont.txtID_contrato.setText(Integer.toString(contrato.getId_contrato()));
+
+            fromCont.jComboBoxEstadoContrato.setSelectedItem(contrato.getEstado_contrato());
+            fromCont.txtMonto.setText(String.valueOf(contrato.getMonto()));
+            fromCont.jDateChooserFecIni.setDate(Date.from(contrato.getFecha_ini().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+            fromCont.jDateChooserFecFin.setDate(Date.from(contrato.getFecha_fin().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+
+            CtrlContrato ctrlContrato = new CtrlContrato(contrato, cdContrato, fromCont);
+            ArrayList<Inquilino> inquilinos=new ArrayList<Inquilino>();
+            cdInquilino.obtenerInquilinos(inquilinos);
+            for(Inquilino inq:inquilinos ){
+                if(contrato.getDni_inquilino() == inq.getDni_inquilino()){
+
+                    fromCont.jComboBoxInquilino.getModel().setSelectedItem(inq);
+                    break;
+                }
+            }
+            ArrayList<Inmueble> inmuebles=new ArrayList<Inmueble>();
+            cdInmueble.obtenerInmuebles(inmuebles);
+            for(Inmueble inm:inmuebles ){
+                if(contrato.getId_inmueble() == inm.getId_inmueble()){
+
+                    fromCont.jComboBoxInmueble.getModel().setSelectedItem(inm);
+                    break;
+                }
+            }
+            ctrlContrato.iniciar();
+            //PanelContratoList.cargarContratos();false
+            fromCont.jButtonBuscarInmueble.setEnabled(false);
+            fromCont.jButtonBuscarInquilino.setEnabled(false);
+            fromCont.jComboBoxInmueble.setEnabled(false);
+            fromCont.jComboBoxInquilino.setEnabled(false);
+            fromCont.jDateChooserFecFin.setEnabled(false);
+            fromCont.jDateChooserFecIni.setEnabled(false);
+            fromCont.txtMonto.setEditable(false);
+            fromCont.jButtonGuardar.setEnabled(false);
+            fromCont.txtID_contrato.setEditable(false);
+            fromCont.jButtonLimpiar.setEnabled(false);
+            // this.setEnabled(false);
+        }
+    }//GEN-LAST:event_jButtonContratoAbrirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -508,10 +596,11 @@ public class fromMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonContrato;
+    public javax.swing.JButton jButtonContratoAbrir;
+    public javax.swing.JButton jButtonContratoNuevo;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanelContrato;
+    public javax.swing.JPanel jPanelContrato;
     public static javax.swing.JPanel jPanelInmueble;
     private javax.swing.JPanel jPanelInquilino;
     private javax.swing.JPanel jPanelPropietario;
