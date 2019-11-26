@@ -58,7 +58,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="159" max="32767" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -141,28 +141,15 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jRadioButtonDisponible" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jRadioButtonNoDisp" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jRadioButtonTodos" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jComboBoxPropietarios" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
-                                      <Component id="txtDireccion" min="-2" pref="329" max="-2" attributes="0"/>
-                                      <Component id="jComboBoxTipInmueble" min="-2" pref="250" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jComboBoxPropietarios" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
+                              <Component id="txtDireccion" min="-2" pref="329" max="-2" attributes="0"/>
+                              <Component id="jComboBoxTipInmueble" min="-2" pref="250" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -194,14 +181,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButtonDisponible" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButtonNoDisp" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButtonTodos" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="21" max="32767" attributes="0"/>
+                  <EmptySpace pref="25" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButtonBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonLimpiar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -271,38 +251,6 @@
         <Component class="javax.swing.JTextField" name="txtDireccion">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Estado Inmueble:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButtonDisponible">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Disponible"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonDisponibleActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButtonNoDisp">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="No Disponible"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButtonTodos">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Todos"/>
-          </Properties>
-          <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
