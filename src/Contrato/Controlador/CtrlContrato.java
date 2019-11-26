@@ -130,7 +130,7 @@ public class CtrlContrato  implements ActionListener{
                       id_inmueble = tableroBuscarInmueble.getId_inmueble();
                        frmCon.enable(true);
                        frmCon.setVisible(true);
-                       
+                       frmCon.jComboBoxInmueble.removeAllItems();
                        for(Inmueble inmu:inmuebles ){
                            if(id_inmueble == inmu.getId_inmueble()){
                                frmCon.jComboBoxInmueble.setSelectedItem(inmu);
@@ -161,7 +161,7 @@ public class CtrlContrato  implements ActionListener{
                       dni_inquilino = tableroBuscarInquilino.getDni_inquilino();
                        frmCon.enable(true);
                        frmCon.setVisible(true);
-                       
+                       frmCon.jComboBoxInquilino.removeAllItems();
                        for(Inquilino inq:inquilinos ){
                            if(dni_inquilino == inq.getDni_inquilino()){
                                frmCon.jComboBoxInquilino.setSelectedItem(inq);
@@ -240,7 +240,9 @@ public class CtrlContrato  implements ActionListener{
     }
     
     public void cargarInmueble(){
+        inmuebles.clear();
         consultaInmueble.obtenerInmueblesDisponible(inmuebles);
+        frmCon.jComboBoxInmueble.removeAllItems();
         this.frmCon.jComboBoxInmueble.addItem(null);
          for(Inmueble elem:inmuebles){
             this.frmCon.jComboBoxInmueble.addItem(elem);
@@ -248,6 +250,8 @@ public class CtrlContrato  implements ActionListener{
     }
     
     public void cargarInquilino(){
+        inquilinos.clear();
+        frmCon.jComboBoxInquilino.removeAllItems();
         consultaInquilino.obtenerInquilinos(inquilinos);
         this.frmCon.jComboBoxInquilino.addItem(null);
          for(Inquilino elem:inquilinos){

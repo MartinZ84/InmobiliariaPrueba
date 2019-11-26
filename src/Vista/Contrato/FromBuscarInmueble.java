@@ -94,19 +94,22 @@ public class FromBuscarInmueble extends javax.swing.JFrame {
     }
     
     public void cargarTipoInmueble(){
+      tiposinmueble.clear();
       consultatipo.ObtenerTiposInmueble(tiposinmueble);
       TipoInmueble nulo = new TipoInmueble();
-      
+      jComboBoxTipInmueble.removeAllItems();
       jComboBoxTipInmueble.addItem(null);
       for(TipoInmueble tipo:tiposinmueble)
           jComboBoxTipInmueble.addItem(tipo);
   }
     
     public void cargarPropietarios(){
+      propietarios.clear();
       consultasp.obtenerPropietarios(propietarios);
       Propietario nulo = new Propietario();
         nulo.setApellido_propietario("");
         nulo.setNombre_propietario("");
+      jComboBoxPropietarios.removeAllItems();
       jComboBoxPropietarios.addItem(nulo);
       for(Propietario prop:propietarios)
           jComboBoxPropietarios.addItem(prop);
