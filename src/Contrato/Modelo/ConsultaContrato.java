@@ -78,14 +78,13 @@ public class ConsultaContrato extends  Conexion {
    
    public boolean Modificar(Contrato cont){
        
-        String sql = "UPDATE contrato SET estado_contrato  = ?, monto=?, where id_contrato = ?; ";
+        String sql = "UPDATE contrato SET estado_contrato  = ? where id_contrato = ?; ";
               //      + " UPDATE inmueble SET estado_inmueble = ? where id_inmueble = ?;"; 
         
          try {
             ps=con.prepareStatement(sql);
             ps.setString(1, cont.getEstado_contrato());
-            ps.setInt(3, cont.getId_contrato());
-            ps.setDouble(2, cont.getMonto());
+            ps.setInt(2, cont.getId_contrato());
 //            if(cont.getEstado_contrato().equals("VIGENTE")){
 //                ps.setString(3, "No disponible");
 //            }else{

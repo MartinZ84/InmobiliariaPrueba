@@ -67,6 +67,9 @@ public class CrlInmueble implements ActionListener{
   public void actionPerformed(ActionEvent e){
       
       if (e.getSource()==formulario.btnGuardar){
+           if(campoVacio()){
+              JOptionPane.showMessageDialog(null, "Complete todos los datos del inmueble");
+          } 
           propietario.setDni_propietario(((Propietario)formulario.cboPropietarios.getSelectedItem()).getDni_propietario());
           consultaprop.Buscar(propietario);
           inmueble.setPropietario(propietario);
@@ -83,6 +86,9 @@ public class CrlInmueble implements ActionListener{
               limpiar();
               PanelInmueble.cargarInmueblesFiltrados();
               PanelInmueble.rbTodos.setSelected(true);
+              int i = JOptionPane.showConfirmDialog(null,"¿Desea guardar mas inmuebles?",null,JOptionPane.YES_NO_OPTION);
+            if(i==0){}
+            else {formulario.dispose();}
               
               
           } else{ JOptionPane.showMessageDialog(null, "Error al guardar inmueble");
@@ -92,6 +98,9 @@ public class CrlInmueble implements ActionListener{
   }
       
       if (e.getSource()==formulario.btnModificar){
+          if(campoVacio()){
+              JOptionPane.showMessageDialog(null, "Complete todos los datos del inmueble");
+          } 
           propietario.setDni_propietario(((Propietario)formulario.cboPropietarios.getSelectedItem()).getDni_propietario());
           consultaprop.Buscar(propietario);
           inmueble.setPropietario(propietario);
@@ -174,6 +183,16 @@ public class CrlInmueble implements ActionListener{
       for(Propietario prop:propietarios)
           formulario.cboPropietarios.addItem(prop);
       
+      
+  }
+  public boolean campoVacio(){
+      if(formulario.txtDireccion.getText().equals("")||
+         formulario.txtPrecio.getText().equals("")||
+         formulario.txtSuperficie.getText().equals("")||
+         formulario.cboPropietarios.getSelectedIndex()==-1||
+         formulario.cboTipo_inm.getSelectedIndex()==-1)
+          return true;
+      else return false;
       
   }
   /*public void cargarPropietarios(){
