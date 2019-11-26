@@ -57,7 +57,7 @@ public class PanelInmueble extends javax.swing.JPanel {
         this.cbPrecio.setSelectedIndex(-1);
         this.cbTipoInmueble.setSelectedIndex(-1);
         cargarInmueblesFiltrados();
-        jBnuevoContrato.setEnabled(false);
+        jBnuevoContrato.setEnabled(true);
         
     }
     public void armarCabeceraInmuebles(){
@@ -573,7 +573,7 @@ public class PanelInmueble extends javax.swing.JPanel {
     private void rbTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbTodosActionPerformed
         
      cargarInmueblesFiltrados();
-     jBnuevoContrato.setEnabled(false);
+     jBnuevoContrato.setEnabled(true);
     }//GEN-LAST:event_rbTodosActionPerformed
 
     private void btnLimpiarPropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarPropActionPerformed
@@ -618,8 +618,10 @@ public class PanelInmueble extends javax.swing.JPanel {
 
     private void jBnuevoContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBnuevoContratoActionPerformed
         // TODO add your handling code here:
-        if (rbDisponiblegrilla.isSelected()){
+        
             if(tabInmuebles.getSelectedRow()!=-1){
+                if(modeloinmuebles.getValueAt(tabInmuebles.getSelectedRow(), 6).equals("Disponible"))
+                {
         Contrato cont = new Contrato();
         ConsultaContrato podCont = new ConsultaContrato();
         FromContrato frmCont = new FromContrato();
@@ -642,10 +644,12 @@ public class PanelInmueble extends javax.swing.JPanel {
         frmCont.jComboBoxInmueble.getModel().setSelectedItem(inmuebleabrir);
         frmCont.txtMonto.setText(Double.toString(inmuebleabrir.getPrecio_base()));
         frmCont.jButtonBuscarInmueble.setEnabled(false);
+                } else JOptionPane.showMessageDialog(null, "Seleccione un inmueble disponible");
+          }else {
+                JOptionPane.showMessageDialog(null,"No ha seleccionado ningun inmueble  para realizar un contrato nuevo.");
+            }
         
-          }else JOptionPane.showMessageDialog(null,"No ha seleccionado ningun inmueble disponible para realizar un contrato nuevo.");
-        }
-        else JOptionPane.showMessageDialog(null,"No se puede realizar un nuevo contrato en un inmueble No disponible.");
+
         
     }//GEN-LAST:event_jBnuevoContratoActionPerformed
 

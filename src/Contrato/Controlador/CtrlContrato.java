@@ -186,6 +186,11 @@ public class CtrlContrato  implements ActionListener{
                     JOptionPane.showMessageDialog(null, "Debe ingresar datos completos de Contrato", "Guardar", JOptionPane.WARNING_MESSAGE); 
                 }
                 else {
+                    if(frmCon.jDateChooserFecFin.getDate().before(frmCon.jDateChooserFecIni.getDate()))
+                    {
+                        JOptionPane.showMessageDialog(null,"Seleccione una fecha de fin posterior a la fecha de inicio del contrato");
+                    }
+                    else {
                     contrato.setEstado_contrato(frmCon.jComboBoxEstadoContrato.getSelectedItem().toString());
                     contrato.setMonto(Double.parseDouble(frmCon.txtMonto.getText()));
                     contrato.setInmueble(((Inmueble) frmCon.jComboBoxInmueble.getSelectedItem()));
@@ -204,7 +209,7 @@ public class CtrlContrato  implements ActionListener{
               
                     } else{ JOptionPane.showMessageDialog(null, "Error al Guardar");
                             limpiar();
-                    }
+                    } }
                 }
         }
             catch(Exception num){JOptionPane.showMessageDialog(null, "Dato invalido");
