@@ -119,20 +119,20 @@ public class fromMenu extends javax.swing.JFrame {
         jPanelContratoLayout.setHorizontalGroup(
             jPanelContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelContratoLayout.createSequentialGroup()
-                .addGap(653, 653, 653)
+                .addContainerGap(772, Short.MAX_VALUE)
                 .addComponent(jButtonContratoNuevo)
-                .addGap(60, 60, 60)
+                .addGap(47, 47, 47)
                 .addComponent(jButtonContratoAbrir)
-                .addContainerGap(544, Short.MAX_VALUE))
+                .addGap(549, 549, 549))
         );
         jPanelContratoLayout.setVerticalGroup(
             jPanelContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelContratoLayout.createSequentialGroup()
-                .addContainerGap(472, Short.MAX_VALUE)
+                .addContainerGap(331, Short.MAX_VALUE)
                 .addGroup(jPanelContratoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonContratoNuevo)
                     .addComponent(jButtonContratoAbrir))
-                .addGap(229, 229, 229))
+                .addGap(370, 370, 370))
         );
 
         jTabbedPaneMenu.addTab("Contrato", jPanelContrato);
@@ -157,7 +157,7 @@ public class fromMenu extends javax.swing.JFrame {
             .addGroup(jPanelPropietarioLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 979, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1090, Short.MAX_VALUE)
                 .addComponent(jSalirPro)
                 .addGap(135, 135, 135))
         );
@@ -219,7 +219,7 @@ public class fromMenu extends javax.swing.JFrame {
                 .addComponent(jSalirInq)
                 .addGap(141, 141, 141))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInquilinoLayout.createSequentialGroup()
-                .addContainerGap(829, Short.MAX_VALUE)
+                .addContainerGap(940, Short.MAX_VALUE)
                 .addComponent(jbtnNuevoInquilino)
                 .addGap(35, 35, 35)
                 .addComponent(jbtnAbrirInquilino)
@@ -260,7 +260,7 @@ public class fromMenu extends javax.swing.JFrame {
         jPanelInmuebleLayout.setHorizontalGroup(
             jPanelInmuebleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInmuebleLayout.createSequentialGroup()
-                .addContainerGap(1205, Short.MAX_VALUE)
+                .addContainerGap(1316, Short.MAX_VALUE)
                 .addComponent(jSalirInm)
                 .addGap(140, 140, 140))
         );
@@ -277,7 +277,7 @@ public class fromMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPaneMenu)
+            .addComponent(jTabbedPaneMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 1491, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

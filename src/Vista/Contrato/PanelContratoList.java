@@ -81,13 +81,22 @@ public class PanelContratoList extends javax.swing.JPanel {
             columnasC.add("ID");
             columnasC.add("Inquilino");
             columnasC.add("Inmueble");
+            columnasC.add("Propietario");
             columnasC.add("Estado");
             columnasC.add("Fecha Inicio");
             columnasC.add("Fecha Fin");
+            
         for(Object col:columnasC) {
             modeloContrato.addColumn(col);
         }
         jTableContrato.setModel(modeloContrato);
+        jTableContrato.getColumn("ID").setMaxWidth(30);
+        jTableContrato.getColumn("Inquilino").setMinWidth(170);
+        jTableContrato.getColumn("Inmueble").setMinWidth(200);
+        jTableContrato.getColumn("Propietario").setMinWidth(140);
+        jTableContrato.getColumn("Estado").setMinWidth(80);
+        jTableContrato.getColumn("Fecha Inicio").setMinWidth(80);
+        jTableContrato.getColumn("Fecha Fin").setMinWidth(80);
      }
      public static void borrarContratos(){
         int c = modeloContrato.getRowCount()-1;
@@ -96,14 +105,19 @@ public class PanelContratoList extends javax.swing.JPanel {
     }
      
      public static void cargarContratos(){
+            Inmueble inmgrilla=new Inmueble();
+            ConsultasInmueble consgrill=new ConsultasInmueble();
             contratos.clear();
             consultaContrato.obtenerContratos(contratos);
             borrarContratos();
             for(Contrato con:contratos){
+                inmgrilla.setId_inmueble(con.getId_inmueble());
+                consgrill.Buscar(inmgrilla);
                 modeloContrato.addRow(new Object[] {
                     con.getId_contrato(), 
                     con.getNombreInquilino(), 
-                    con.getNombreInmueble(),
+                    inmgrilla.getTipo_inmueble()+". "+inmgrilla.getDireccion_inmueble(),
+                    inmgrilla.getPropietario().getApellido_propietario()+", "+inmgrilla.getPropietario().getNombre_propietario(),
                     con.getEstado_contrato(),
                     con.getFecha_ini().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
                     con.getFecha_fin().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
@@ -150,7 +164,7 @@ public class PanelContratoList extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jComboBoxFinderInmueble = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
-        jComboBoxFinderInquilino = new javax.swing.JComboBox<Inquilino>();
+        jComboBoxFinderInquilino = new javax.swing.JComboBox<>();
         jComboBoxFinderEstadoContrato = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -323,7 +337,7 @@ public class PanelContratoList extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 787, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -333,11 +347,9 @@ public class PanelContratoList extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanelBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(223, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("");

@@ -133,8 +133,7 @@ public boolean Buscar(Inmueble inmueble){
         String sql = "SELECT * FROM inmueble WHERE id_inmueble=?"; 
         
         try {
-            Propietario propietario=new Propietario();
-            TipoInmueble tipoinmueble=new TipoInmueble();
+            
             ConsultasPropietario consultapropietario=new ConsultasPropietario();
             ConsultasTipoInmueble consultastipoinmueble=new ConsultasTipoInmueble();
             ps = con.prepareStatement(sql);
@@ -144,6 +143,8 @@ public boolean Buscar(Inmueble inmueble){
 
             
             if(rs.next()){
+                Propietario propietario=new Propietario();
+                TipoInmueble tipoinmueble=new TipoInmueble();
                 inmueble.setId_inmueble(rs.getInt("Id_inmueble"));
                 propietario.setDni_propietario(rs.getInt("dni_propietario"));
                 tipoinmueble.setId_tipo_inmueble(rs.getInt("id_tipo_inmueble"));
@@ -482,6 +483,7 @@ public boolean Buscar(Inmueble inmueble){
                 Propietario propietario=new Propietario();
                 TipoInmueble tipoinmueble=new TipoInmueble();
                 Inmueble inmueble=new Inmueble();
+                propietario.setDni_propietario(rs.getInt("dni_propietario"));
                 tipoinmueble.setId_tipo_inmueble(rs.getInt("id_tipo_inmueble"));
                 consultapropietario.Buscar(propietario);
                 consultastipoinmueble.Buscar(tipoinmueble);
