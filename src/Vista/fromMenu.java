@@ -510,7 +510,6 @@ public class fromMenu extends javax.swing.JFrame {
         else {
             cdContrato.Buscar(contrato);
             fromCont.txtID_contrato.setText(Integer.toString(contrato.getId_contrato()));
-
             fromCont.jComboBoxEstadoContrato.setSelectedItem(contrato.getEstado_contrato());
             fromCont.txtMonto.setText(String.valueOf(contrato.getMonto()));
             fromCont.jDateChooserFecIni.setDate(Date.from(contrato.getFecha_ini().atStartOfDay(ZoneId.systemDefault()).toInstant()));

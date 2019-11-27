@@ -85,6 +85,7 @@ public class PanelContratoList extends javax.swing.JPanel {
             CtrlContrato ctrlContrato = new CtrlContrato(contrato, cdContrato, fromCont);
             ArrayList<Inquilino> inquilinos=new ArrayList<Inquilino>();
             cdInquilino.obtenerInquilinos(inquilinos);
+            cargarInquilino();
             for(Inquilino inq:inquilinos ){
                 if(contrato.getInquilino().getDni_inquilino() == inq.getDni_inquilino()){
 
@@ -94,6 +95,7 @@ public class PanelContratoList extends javax.swing.JPanel {
             }
             ArrayList<Inmueble> inmuebles=new ArrayList<Inmueble>();
             cdInmueble.obtenerInmuebles(inmuebles);
+            cargarInmueble();
             for(Inmueble inm:inmuebles ){
                 if(contrato.getInmueble().getId_inmueble() == inm.getId_inmueble()){
 
@@ -113,6 +115,7 @@ public class PanelContratoList extends javax.swing.JPanel {
             fromCont.jButtonGuardar.setEnabled(false);
             fromCont.txtID_contrato.setEditable(false);
             fromCont.jButtonLimpiar.setEnabled(false);
+  
             // this.setEnabled(false);
         }
                                 }

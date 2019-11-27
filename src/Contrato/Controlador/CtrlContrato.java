@@ -130,7 +130,10 @@ public class CtrlContrato  implements ActionListener{
                       id_inmueble = tableroBuscarInmueble.getId_inmueble();
                        frmCon.enable(true);
                        frmCon.setVisible(true);
+                       inmuebles.clear();
+                       consultaInmueble.obtenerInmuebles(inmuebles);
                        frmCon.jComboBoxInmueble.removeAllItems();
+                       cargarInmueble();
                        for(Inmueble inmu:inmuebles ){
                            if(id_inmueble == inmu.getId_inmueble()){
                                frmCon.jComboBoxInmueble.setSelectedItem(inmu);
@@ -161,7 +164,10 @@ public class CtrlContrato  implements ActionListener{
                       dni_inquilino = tableroBuscarInquilino.getDni_inquilino();
                        frmCon.enable(true);
                        frmCon.setVisible(true);
+                       inquilinos.clear();
+                       consultaInquilino.obtenerInquilinos(inquilinos);
                        frmCon.jComboBoxInquilino.removeAllItems();
+                       cargarInquilino();
                        for(Inquilino inq:inquilinos ){
                            if(dni_inquilino == inq.getDni_inquilino()){
                                frmCon.jComboBoxInquilino.setSelectedItem(inq);

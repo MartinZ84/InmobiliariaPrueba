@@ -153,7 +153,7 @@ public boolean Buscar(Inquilino inquilino){
         
         try {
             ps = con.prepareStatement(sql);
-             ps.setInt(1,inquilino.getDni_inquilino());
+            ps.setInt(1,inquilino.getDni_inquilino());
             rs = ps.executeQuery();
      
             if(rs.next()){
@@ -186,8 +186,8 @@ public boolean Buscar(Inquilino inquilino){
 
  public boolean obtenerInquilinos(List <Inquilino> inquilinos){
         new ArrayList<Inquilino>();
-         PreparedStatement ps = null;
-       ResultSet rs= null;
+        PreparedStatement ps = null;
+        ResultSet rs= null;
         Connection con = conexion();
           try {
             
