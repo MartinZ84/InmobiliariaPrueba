@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2019 a las 01:02:52
+-- Tiempo de generación: 27-11-2019 a las 01:10:40
 -- Versión del servidor: 10.1.35-MariaDB
 -- Versión de PHP: 7.2.9
 
@@ -43,9 +43,17 @@ CREATE TABLE `contrato` (
 --
 
 INSERT INTO `contrato` (`id_contrato`, `id_inmueble`, `dni_inquilino`, `estado_contrato`, `monto`, `fecha_ini`, `fecha_fin`) VALUES
-(1, 42, 12345678, 'VIGENTE', 352015, '2019-11-10 00:00:00', '2019-11-22 00:00:00'),
-(2, 49, 42315456, 'VIGENTE', 4567, '2019-11-04 00:00:00', '2019-11-03 00:00:00'),
-(3, 54, 12345678, 'VIGENTE', 4532, '2019-11-04 00:00:00', '2019-11-06 00:00:00');
+(2, 52, 12345678, 'NO VIGENTE', 15000, '2019-11-01 00:00:00', '2020-12-01 00:00:00'),
+(3, 48, 25999888, 'VIGENTE', 6000, '2019-11-02 00:00:00', '2021-11-02 00:00:00'),
+(4, 42, 32777788, 'NO VIGENTE', 4565, '2019-11-01 00:00:00', '2019-11-07 00:00:00'),
+(5, 51, 25999888, 'NO VIGENTE', 15500, '2019-11-01 00:00:00', '2021-12-18 00:00:00'),
+(6, 50, 12345678, 'VIGENTE', 45555, '2020-11-13 00:00:00', '2021-11-13 00:00:00'),
+(7, 54, 32777788, 'NO VIGENTE', 7000, '2019-11-14 00:00:00', '2021-11-26 00:00:00'),
+(8, 42, 12345678, 'VIGENTE', 14000, '2018-11-15 00:00:00', '2019-11-30 00:00:00'),
+(9, 52, 25999888, 'NO VIGENTE', 42343, '2019-11-09 00:00:00', '2020-11-19 00:00:00'),
+(10, 54, 32, 'VIGENTE', 12000, '2019-11-29 00:00:00', '2018-11-23 00:00:00'),
+(11, 52, 32777788, 'VIGENTE', 42343, '2019-11-08 00:00:00', '2021-11-19 00:00:00'),
+(12, 55, 12445564, 'VIGENTE', 10000, '2019-11-08 00:00:00', '2020-11-20 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -68,12 +76,19 @@ CREATE TABLE `inmueble` (
 --
 
 INSERT INTO `inmueble` (`id_inmueble`, `id_tipo_inmueble`, `dni_propietario`, `direccion_inmueble`, `superficie`, `precio_base`, `estado_inmueble`) VALUES
+(39, 4, 12370189, 'Por ahi 2000', 52147, 4000, 'No disponible'),
+(40, 1, 12370189, 'Somewhere over the rainbow', 7562, 6000, 'No disponible'),
 (42, 4, 12370189, 'Lejos', 5200, 14000, 'No disponible'),
-(49, 4, 25658742, 'Barcelona 2000', 1000, 5000, 'No disponible'),
-(51, 1, 25658742, 'aaaa', 5000, 12341, 'No disponible'),
-(53, 2, 64646464, 'ADSAD', 5454, 56456, 'No disponible'),
-(54, 1, 43620916, 'Hollywood', 1231, 1234, 'No disponible'),
-(55, 3, 75878575, 'Chacabuco 1200', 1234, 6300, 'Disponible');
+(45, 4, 43620916, 'La quiaca', 65412, 1000, 'No disponible'),
+(48, 11, 43620916, 'HOLLYWOOD LANE', 60, 10000, 'No disponible'),
+(50, 1, 45548887, 'Rivadavia 589', 80, 12000, 'No disponible'),
+(51, 1, 7565655, 'Estocolmo 435', 45, 12000, 'Disponible'),
+(52, 20, 24255552, 'Viva 424', 134, 42343, 'No disponible'),
+(54, 8, 43553222, 'Saen Peña 558, Lanus', 98, 12000, 'No disponible'),
+(55, 12, 10234123, 'Siria 252,Bariloche', 120, 15000, 'No disponible'),
+(56, 1, 12344444, 'Cespedes 525, Capital Federal', 40, 10000, 'Disponible'),
+(57, 8, 29000122, 'Gaona 454, Cordoba', 120, 11000, 'Disponible'),
+(59, 9, 24255552, 'Sartre 544', 80, 455, 'Disponible');
 
 -- --------------------------------------------------------
 
@@ -96,11 +111,13 @@ CREATE TABLE `inquilino` (
 --
 
 INSERT INTO `inquilino` (`dni_inquilino`, `nombre_inquilino`, `apellido_inquilino`, `cuit_inquilino`, `lugar_trabajo_inquilino`, `nom_garante_inquilino`, `dni_garante_inquilino`) VALUES
-(12345678, 'Pepe', 'Sanchez', '20123456786', 'VEA', 'El primo', 12345679),
-(35412842, 'Galileo', 'Galilei', '2035412842', 'Observatorio', 'Nicolas Copernico', 36542154),
-(42315456, 'Pedro', 'Millenial', '20423154566', 'La deep web', 'Pepe Millenial', 43214982),
-(45789321, 'Taylor', 'Swift', '20457893217', 'Canta', 'No necesita', 37552658),
-(57164541, 'Tito', 'Torres', '20571645418', 'Aiello', 'Joe Jonas', 34254184);
+(32, 'Adolfo', 'Garcia', '21-3245632|', 'Arcor', 'Pablo', 41),
+(54, 'Jose', 'Perez', '20-32323232-4', 'oficina', 'Jorge', 3213455),
+(12345678, 'Pepe', 'Sanchez', '20123456786', 'VEA', 'Michael Jacson', 12345679),
+(12445564, 'Juan Domingo', 'Perdon', '10-12445564-6', 'Molinos sa', 'Lope Vega', 400031),
+(25999888, 'Mirta Sofia', 'Tundi', '23-25999888-2', 'Wms', 'Claudia Mafe', 30215544),
+(32777788, 'Susana', 'Carlto', '20-325455-55', 'San Luis', 'Roberto Sanchez', 20154454),
+(35245444, 'Sara', 'Connor', '23-3424244-44', 'Arizona', 'Terminator', 800);
 
 -- --------------------------------------------------------
 
@@ -121,28 +138,18 @@ CREATE TABLE `propietario` (
 --
 
 INSERT INTO `propietario` (`dni_propietario`, `nombre_propietario`, `apellido_propietario`, `domicilio_propietario`, `telefono_propietario`) VALUES
-(10101010, 'Nico', 'Del Caño', 'A la izquierda', '24784848'),
-(12345655, 'Eso', 'Eso', 'Alcantarillas', '000'),
-(12370189, 'Estela', 'Artois', 'Alemania 2000', '5624863'),
-(15465656, 'Propietario', 'De prueba dos', 'Probando', '1234'),
-(20457898, 'Fredderick', 'Mercury', 'Inglaterra 1234', '24579875'),
-(25487945, 'Vladimir', 'Putin', 'Rusia 1000', '26644038238'),
-(25658742, 'Lionel Andrés', 'Messi Cuccittini', 'Algun lugar en Barcelona', '285397'),
-(26644038, 'Valentina', 'Velez', 'Belgrano 2222', '654785248'),
-(42652646, 'Propietario', 'De prueba', 'Probando', '123'),
-(43620916, 'Ariana', 'Grande', 'New York', '65791244'),
-(43620917, 'Horacio', 'Pagani', 'Estudio futbol 1', '26464646'),
-(44464665, 'Mauricio', 'Macri', 'Refugio de gatos', '15454656'),
-(45678925, 'Juan', 'Juanes', 'Chacabuco 1200', '26457847'),
-(45787887, 'Brian', 'May', 'Al lado de Freddy', '88725454'),
-(54645648, 'Eliana', 'Sosa', 'La Quaica', '445646'),
-(55555555, 'Brian', 'Navarro', 'Pera 4232', '75724'),
-(55649310, 'Luciano', 'Pereyra', 'No se sabe', '565964'),
-(56103546, 'Bebe', 'Recien Nacido', 'Con la madre', '00000'),
-(64646464, 'Nina', 'Ricci', 'Bolivar 1234', '2664478978'),
-(75258722, 'Pepe', 'Perez', 'Las heras 1234', '2664403916'),
-(75875875, 'Teletubi', 'Rojo', 'Magic Kids', '1111111111'),
-(75878575, 'Hugh', 'Jackman', 'Wolverine St 100', '47524577');
+(242444, 'Saa', 'Alberto', 'Colon 544', '242424'),
+(7565655, 'Salmon', 'Clame', 'Claut 44', '243255'),
+(10234123, 'Pedro', 'Soriano', 'Lago Pue 544, Bariloche', '2564889977'),
+(12344444, 'Mauricio', 'Garfield', 'Olivos 552, Vicente Lopez', '011455588888'),
+(12370189, 'Estela', 'Artois', 'Belgica 54', '5624863'),
+(23244444, 'Juan', 'Manzur', 'Salta 1234', '24562444422'),
+(24255552, 'Patrica', 'Burlich', 'Bomba 35', '353'),
+(29000122, 'Laura', 'Saeta', 'Girona 2333, Cordoba', '26579944400'),
+(43553222, 'Ernestina', 'Paez', 'San luis', '3434333223'),
+(43620916, 'Ariana', 'Grande', 'New York', '6579124'),
+(45548887, 'Marcela', 'Morelo', 'Marte 325', '2664888999'),
+(72647277, 'Pepita', 'Suarez', 'Mitre 435', '01145678987');
 
 -- --------------------------------------------------------
 
@@ -162,9 +169,25 @@ CREATE TABLE `tipo_inmueble` (
 
 INSERT INTO `tipo_inmueble` (`id_tipo_inmueble`, `tipo_inmueble`, `zona_inmueble`) VALUES
 (1, 'Departamento', 'Centro'),
-(2, 'Departamento', 'Rural'),
-(3, 'Negocio', 'Ciudad'),
-(4, 'Apartamento', 'Centro');
+(2, 'Departamento', 'Zona Norte'),
+(3, 'Departamento', 'Zona Sur'),
+(4, 'Departamento', 'Zona Oeste'),
+(5, 'Local', 'Centro'),
+(6, 'Local', 'Zona Oeste'),
+(7, 'Local', 'Zona Sur'),
+(8, 'Local', 'Zona Norte'),
+(9, 'Casa', 'Centro'),
+(10, 'Casa', 'Zona Oeste'),
+(11, 'Casa', 'Zona Norte'),
+(12, 'Casa', 'Zona Sur'),
+(13, 'Oficina', 'Centro'),
+(14, 'Oficina', 'Zona Oeste'),
+(15, 'Oficina', 'Zona Sur'),
+(16, 'Oficina', 'Zona Norte'),
+(17, 'Oficina', 'Zona Este'),
+(18, 'Departamento', 'Zona Este'),
+(19, 'Local', 'Zona Este'),
+(20, 'Casa', 'Zona Este');
 
 --
 -- Índices para tablas volcadas
@@ -212,25 +235,25 @@ ALTER TABLE `tipo_inmueble`
 -- AUTO_INCREMENT de la tabla `contrato`
 --
 ALTER TABLE `contrato`
-  MODIFY `id_contrato` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_contrato` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `inmueble`
 --
 ALTER TABLE `inmueble`
-  MODIFY `id_inmueble` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id_inmueble` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT de la tabla `inquilino`
 --
 ALTER TABLE `inquilino`
-  MODIFY `dni_inquilino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57164542;
+  MODIFY `dni_inquilino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35245445;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_inmueble`
 --
 ALTER TABLE `tipo_inmueble`
-  MODIFY `id_tipo_inmueble` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_tipo_inmueble` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Restricciones para tablas volcadas
